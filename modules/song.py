@@ -93,7 +93,7 @@ def a(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                  InlineKeyboardButton("send personaly", url=f'https://t.me/annsong_bot?start=audio_file')
+                  InlineKeyboardButton("send personaly", url=f'https://t.me/Annasong_bot?start=audio_file')
                 ]
             ]
         ),

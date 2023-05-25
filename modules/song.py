@@ -9,7 +9,7 @@ import time
 from config import Config
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-ABS="Developer"
+ABS="Sᴜᴘᴘᴏʀᴛ"
 APPER="lallus"
 OWNER="Owner"
 GITCLONE="github.com/shamilhabeebnelli/song-bot"

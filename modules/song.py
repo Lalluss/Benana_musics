@@ -27,12 +27,9 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton(BUTTON1, url=f"https://t.me/+BzleUoO-duFmODRl")
-                 ],[
-                    InlineKeyboardButton(OWNER, url=f"https://telegram.dog/{Config.OWNER}"),
-                    InlineKeyboardButton(ABS, url=B2)
+                ]
             ]
-          ]
-        ),
+         ),
     )
 
 

@@ -13,7 +13,7 @@ ABS="Developer"
 APPER="lallus"
 OWNER="Owner"
 GITCLONE="github.com/shamilhabeebnelli/song-bot"
-B2="telegram.dog/shamilhabeeb"
+B2="telegram.dog/lallus_tg"
 BUTTON1="Gʀᴏᴜᴘ"
 
 def time_to_seconds(time):
@@ -26,7 +26,7 @@ async def start(client, message):
          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(BUTTON1, url=GITCLONE)
+                    InlineKeyboardButton(BUTTON1, url=f"https://t.me/+BzleUoO-duFmODRl")
                  ],[
                     InlineKeyboardButton(OWNER, url=f"https://telegram.dog/{Config.OWNER}"),
                     InlineKeyboardButton(ABS, url=B2)

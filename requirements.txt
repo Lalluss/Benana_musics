@@ -1,6 +1,7 @@
 Pyrogram==1.2.9
 TgCrypto==1.2.2
 yt_dlp
+youtube_dl
 youtube_search_python
 youtube_search
 requests

@@ -127,7 +127,8 @@ def ytsng(client, message):
         while len(results) == 0 and count < 6:
             if count>0:
                 time.sleep(1)
-            results = YoutubeSearch(query, max_results=1).to_dict()
+        results = YoutubeSearch(downurl, max_results=1).to_dict()
+
             count += 1
         # results = YoutubeSearch(query, max_results=1).to_dict()
         try:

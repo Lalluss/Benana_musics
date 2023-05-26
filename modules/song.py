@@ -168,7 +168,7 @@ def ytsng(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                  InlineKeyboardButton("send personaly", url=f'https://t.me/Annasong_bot?start=audio_file')
+                  InlineKeyboardButton("send personaly", callback_data='sendpm#audio_file')
                 ]
             ]
         ),
@@ -183,3 +183,7 @@ def ytsng(client, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
+
+@Client.on_callback_query(filters.regex(r"^sendpm"))
+async def next_page(bot, query):     
+    await query.answer("

@@ -118,7 +118,7 @@ def ytsng(client, message):
 
     url =".join(message.command[1:])"
     query =".join(message.command[1:])"
-    message = message.reply("<code>✨ Fetching... </code>")
+    m=message = message.reply("<code>✨ Fetching... </code>")
     
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:

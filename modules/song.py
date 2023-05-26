@@ -168,7 +168,7 @@ def ytsng(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                  InlineKeyboardButton("send personaly", callback_data=f"sendpm_{audio_file}")
+                  InlineKeyboardButton("send personaly", callback_data=f"sendpm")
                 ]
             ]
         ),
@@ -184,6 +184,8 @@ def ytsng(client, message):
     except Exception as e:
         print(e)
 
-@Client.on_callback_query(filters.regex(r"^sendpm"))
-async def next_page(bot, query):     
-    await query.answer("😍😍🔥")
+@Client.on_callback_query(f'sendpm')
+message.id = get_bot_message.id(audio_file):
+if data == ('send_personally') 
+    await send.cached_media
+    chat.id = message.id

@@ -168,7 +168,7 @@ def ytsng(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                  InlineKeyboardButton("send personaly", callback_data='sendpm#audio_file')
+                  InlineKeyboardButton("send personaly", callback_data=f"sendpm_{audio_file}")
                 ]
             ]
         ),

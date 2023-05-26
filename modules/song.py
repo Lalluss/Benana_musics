@@ -114,7 +114,7 @@ def a(client, message):
 @Client.on_message(filters.regex(r'(https?://)?.*you[^\s]+'))
 def ytsng(client, message):
     query = ''
-    for i in message.command[1:]:
+    for i in message.regex[1:]:
         query += ' ' + str(i)
     print(query)
     m = message.reply('`Searching... 🥀`')

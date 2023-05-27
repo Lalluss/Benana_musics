@@ -91,11 +91,11 @@ def a(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
+        h = message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                  InlineKeyboardButton("send personaly", url=f'https://t.me/Annasong_bot?start=audio_file')
+                  InlineKeyboardButton("send personaly", callback_data=f'sendpm#{h.id}')
                 ]
             ]
         ),
@@ -185,17 +185,13 @@ def ytsng(client, message):
         print(e)     
 
 @Client.on_callback_query(filters.regex(r"^sendpm"))
-def callback_handler(client, callback_query):
+async def callback_handler(client, callback_query):
     data = callback.data
-    message_id = callback_data.split(":")[1]
+    message_id = callback_data.split("#")[1]
     try:
-        message = client.get_chat_message(callback_query.message.chat.id, int(message_id))
-    except Exception as e:
-        print(f"Failed to get message: {e}")
-        return
-
+        q = await client.get_messages(callback_query.message.chat.id, message_id)
     user_id = callback_query.from_user.id
     try:
-        client.send_cached.media(user_id, message.text)
+        await client.send_cached_media(user_id, q.file_id)
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     

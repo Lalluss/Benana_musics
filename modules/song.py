@@ -42,7 +42,6 @@ def a(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('`Searching... 🥀`')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
@@ -73,15 +72,15 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('**👎 Nothing found Retry with another !**')
+            message.reply_text('**👎 Nothing found Retry with another !**')
             return
     except Exception as e:
-        m.edit(
+        message.reply_text(
             "**Enter Song Name with /song Command!**"
         )
         print(str(e))
         return
-    m.edit("`Uploading...🍁`")
+    message.reply_text("<code>✨ Fetching... </code>")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)

@@ -215,8 +215,12 @@ async def callback_handler(client, query):
     thumb_name = AUDIO[sng]["thumb_name"]
     rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'  
     try:
+        secmul, dur, dur_arr = 1, 0, duration.split(':')
+        for i in range(len(dur_arr) - 1, -1, -1):
+            dur += (int(dur_arr[i]) * secmul)
+            secmul *= 60
         user_id = query.from_user.id        
-        await client.send_audio(user_id, audio_file, caption=rep, parse_mode='HTML', title=title, duration=int(duration), performer=performer, thumb=thumb_name, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɢʀᴏᴜᴘ ✨🌟", url="https://t.me/+BzleUoO-duFmODRl")]]))
+        await client.send_audio(user_id, audio_file, caption=rep, parse_mode='HTML', title=title, duration=dur, performer=performer, thumb=thumb_name, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɢʀᴏᴜᴘ ✨🌟", url="https://t.me/+BzleUoO-duFmODRl")]]))
         await query.answer("Audio Send Successfully", show_alert=True)
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     

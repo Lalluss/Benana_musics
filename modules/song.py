@@ -184,7 +184,7 @@ def ytsng(client, message):
     except Exception as e:
         print(e)     
 
-@Client.on_callback_query(sendpm)
+@Client.on_callback_query(filters.regex(sendpm))
 def callback_handler(client, callback_query):
     data = callback.data
     message_id = callback_data.split(":")[1]

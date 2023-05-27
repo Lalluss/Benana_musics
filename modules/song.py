@@ -190,12 +190,12 @@ async def ytsng(client, message):
         print(e)   
 
 @Client.on_callback_query(filters.regex(r"^sendpm"))
-async def callback_handler(client, callback_query):
-    data = callback_query.data
+async def callback_handler(client, query):
+    data = query.data
     sng = data.split("#")[1]
     audio_file = AUDIO[sng]      
     try:
-        user_id = callback_query.from_user.id
+        user_id = query.from_user.id
         
         await client.send_audio(user_id, audio_file)
         await query.answer("Audio Send Successfully")

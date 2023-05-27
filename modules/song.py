@@ -7,7 +7,8 @@ import requests
 import os
 import time
 from config import Config
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery 
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import ChatWriteForbidden
 
 ABS="Sᴜᴘᴘᴏʀᴛ"
 APPER="lallus"
@@ -184,8 +185,20 @@ def ytsng(client, message):
     except Exception as e:
         print(e)
 
-@Client.on_callback_query(f'sendpm')
-message.id = get_bot_message.id(audio_file):
-if data == ('send_personally') 
-    await send.cached_media
-    chat.id = message.id
+from pyrogram.errors import ChatWriteForbidden
+
+@Client.on_callback_query(sendpm)
+def callback_handler(client, callback_query):
+    callback_data = callback_query.data
+    message_id = callback_data.split(":")[1]   "send_message:<message_id>"
+    try:
+        message = client.get_chat_message(callback_query.message.chat.id, int(message_id))
+    except Exception as e:
+        print(f"Failed to get message: {e}")
+        return
+
+    user_id = callback_query.from_user.id
+    try:
+        await client.send_cached.media(user_id, message.text)
+    except ChatWriteForbidden:
+        print("Cannot send a message to this user.")

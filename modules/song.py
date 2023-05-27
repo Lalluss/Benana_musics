@@ -182,23 +182,5 @@ def ytsng(client, message):
         os.remove(audio_file)
         os.remove(thumb_name)
     except Exception as e:
-        print(e)
-
-from pyrogram.errors import ChatWriteForbidden
-
-@Client.on_callback_query(sendpm)
-def callback_handler(client, callback_query):
-    data = callback.data
-    message_id = callback_data.split(":")[1]
-    try:
-        message = client.get_chat_message(callback_query.message.chat.id, int(message_id))
-    except Exception as e:
-        print(f"Failed to get message: {e}")
-        return
-
-    user_id = callback_query.from_user.id
-    try:
-        await client.send_cached.media(user_id, message.text)
-    except ChatWriteForbidden:
-        print("Cannot send a message to this user.")       
+        print(e)     
         

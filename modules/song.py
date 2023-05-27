@@ -190,8 +190,11 @@ async def callback_handler(client, callback_query):
     message_id = callback_data.split("#")[1]
     try:
         q = await client.get_messages(callback_query.message.chat.id, message_id)
-    user_id = callback_query.from_user.id
+    
     try:
-        await client.send_cached_media(user_id, q.file_id)
+        user_id = callback_query.from_user.id
+        media = getattr(q, "audio", None)
+        await client.send_cached_media(user_id, media.file_id)
+        await query.answer("Audio Send Successfully")
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     

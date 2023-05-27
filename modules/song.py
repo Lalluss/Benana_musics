@@ -90,6 +90,10 @@ async def song_fetch(client, message):
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
             AUDIO[keyw] = audio_file
+            AUDIO[keyw]["title"] = title
+            AUDIO[keyw]["duration"] = duration
+            AUDIO[keyw]["link"] = link
+            AUDIO[keyw]["thumb_name"] = thumb_name
         rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -101,7 +105,7 @@ async def song_fetch(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("send personaly", callback_data=f'sendpm#{keyw}')
+                        InlineKeyboardButton("("✨ Send - Personally ✨", callback_data=f'sendpm#{keyw}')
                     ]
                 ]
             ),
@@ -144,6 +148,7 @@ async def ytsng(client, message):
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
+            keyw = title.split()[0]
 
         except Exception as e:
             print(e)
@@ -162,6 +167,11 @@ async def ytsng(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
+            AUDIO[keyw] = audio_file
+            AUDIO[keyw]["title"] = title
+            AUDIO[keyw]["duration"] = duration
+            AUDIO[keyw]["link"] = link
+            AUDIO[keyw]["thumb_name"] = thumb_name
         rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -173,7 +183,7 @@ async def ytsng(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("send personaly", callback_data=f"sendpm#{h.message_id}")
+                        InlineKeyboardButton("✨ Send - Personally ✨", callback_data=f"sendpm#{keyw}")
                     ]
                 ]
             ),
@@ -193,11 +203,16 @@ async def ytsng(client, message):
 async def callback_handler(client, query):
     data = query.data
     sng = data.split("#")[1]
-    audio_file = AUDIO[sng]      
+    audio_file = AUDIO[sng]  
+    duration = AUDIO[sng]["duration"]
+    title = AUDIO[sng]["title"]    
+    link = AUDIO[sng]["link"]
+    performer = f"[@AnnabenbotZ]"
+    thumb_name = AUDIO[sng]["thumb_name"]
+    rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'  
     try:
-        user_id = query.from_user.id
-        
-        await client.send_audio(user_id, audio_file)
+        user_id = query.from_user.id        
+        await client.send_audio(user_id, audio_file, caption=rep, parse_mode='HTML', quote=False, title=title, duration=duration, performer=performer, thumb=thumb_name, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɢʀᴏᴜᴘ ✨🌟", url="https://t.me/+BzleUoO-duFmODRl")]]))
         await query.answer("Audio Send Successfully")
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     

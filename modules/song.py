@@ -80,7 +80,7 @@ def a(client, message):
         )
         print(str(e))
         return
-    message.reply_text("<code>✨ Fetching... </code>")
+    m=message.reply_text("<code>✨ Fetching... </code>")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)

@@ -47,7 +47,7 @@ async def song_fetch(client, message):
         results = []
         count = 0
         while len(results) == 0 and count < 6:
-            if count>0:
+            if count > 0:
                 time.sleep(1)
             results = YoutubeSearch(query, max_results=1).to_dict()
             count += 1
@@ -65,7 +65,7 @@ async def song_fetch(client, message):
             #     m.edit("Exceeded 30mins cap")
             #     return
 
-            performer = f"[@AnnabenbotZ]" 
+            performer = f"[@AnnabenbotZ]"
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
@@ -80,26 +80,29 @@ async def song_fetch(client, message):
         )
         print(str(e))
         return
-    m=await message.reply_text("<code>✨ Fetching... </code>")
+    m = await message.reply_text("<code>✨ Fetching... </code>")
+    h = None  # Assign a default value to 'h'
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep =f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
+        rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
-        for i in range(len(dur_arr)-1, -1, -1):
+        for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        h = message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
-        reply_markup=InlineKeyboardMarkup(
-            [
+        h = await message.reply_audio(
+            audio_file, caption=rep, parse_mode='HTML', quote=False, title=title, duration=dur, performer=performer,
+            thumb=thumb_name,
+            reply_markup=InlineKeyboardMarkup(
                 [
-                  InlineKeyboardButton("send personaly", callback_data=f'sendpm#{h.message_id}')
+                    [
+                        InlineKeyboardButton("send personaly", callback_data=f'sendpm#{h.message_id}')
+                    ]
                 ]
-            ]
-        ),
-        reply_to_message_id=message.message_id
+            ),
+            reply_to_message_id=message.message_id
         )
         await m.delete()
     except Exception as e:
@@ -110,35 +113,35 @@ async def song_fetch(client, message):
         await os.remove(thumb_name)
     except Exception as e:
         print(e)
-        
+
+
 @Client.on_message(filters.regex(r'(https?://)?.*you[^\s]+'))
 async def ytsng(client, message):
+    downurl = message.matches[0].group(0)
 
-    downurl=message.matches[0].group(0)
+    url = "".join(message.command[1:])
+    query = "".join(message.command[1:])
+    m = message = await message.reply("<code>✨ Fetching... </code>")
 
-    url =".join(message.command[1:])"
-    query =".join(message.command[1:])"
-    m=message = await message.reply("<code>✨ Fetching... </code>")
-    
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
         count = 0
         while len(results) == 0 and count < 6:
-            if count>0:
+            if count > 0:
                 time.sleep(1)
             results = YoutubeSearch(downurl, max_results=1).to_dict()
             count += 1
         # results = YoutubeSearch(query, max_results=1).to_dict()
         try:
             link = f"https://youtube.com{results[0]['url_suffix']}"
-            
+
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
             duration = results[0]["duration"]
             views = results[0]["views"]
 
-            performer = f"[@AnnabenbotZ]" 
+            performer = f"[@AnnabenbotZ]"
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
@@ -154,25 +157,28 @@ async def ytsng(client, message):
         print(str(e))
         return
     await m.edit("`Uploading...🍁`")
+    h = None  # Assign a default value to 'h'
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep =f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
+        rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
-        for i in range(len(dur_arr)-1, -1, -1):
+        for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        h = message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
-        reply_markup=InlineKeyboardMarkup(
-            [
+        h = await message.reply_audio(
+            audio_file, caption=rep, parse_mode='HTML', quote=False, title=title, duration=dur, performer=performer,
+            thumb=thumb_name,
+            reply_markup=InlineKeyboardMarkup(
                 [
-                  InlineKeyboardButton("send personaly", callback_data=f"sendpm#{h.message_id}")
+                    [
+                        InlineKeyboardButton("send personaly", callback_data=f"sendpm#{h.message_id}")
+                    ]
                 ]
-            ]
-        ),
-        reply_to_message_id=message.message_id
+            ),
+            reply_to_message_id=message.message_id
         )
         await m.delete()
     except Exception as e:
@@ -182,7 +188,7 @@ async def ytsng(client, message):
         await os.remove(audio_file)
         await os.remove(thumb_name)
     except Exception as e:
-        print(e)     
+        print(e)   
 
 @Client.on_callback_query(filters.regex(r"^sendpm"))
 async def callback_handler(client, callback_query):

@@ -184,7 +184,7 @@ def ytsng(client, message):
     except Exception as e:
         print(e)
 
- from pyrogram.errors import ChatWriteForbidden
+from pyrogram.errors import ChatWriteForbidden
 
 @Client.on_callback_query(sendpm)
 def callback_handler(client, callback_query):

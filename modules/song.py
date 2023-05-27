@@ -197,7 +197,8 @@ async def callback_handler(client, callback_query):
     try:
         user_id = callback_query.from_user.id
         
-        await message.send_audio(user_id, audio_file)
+        await client.send_audio(user_id, audio_file)
         await query.answer("Audio Send Successfully")
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     
+        await query.answer("Start The Bot!")

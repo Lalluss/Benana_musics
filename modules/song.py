@@ -190,8 +190,8 @@ async def ytsng(client, message):
 
 @Client.on_callback_query(filters.regex(r"^sendpm"))
 async def callback_handler(client, callback_query):
-    data = callback.data
-    sng = callback_data.split("#")[1]
+    data = callback_qyery.data
+    sng = data.split("#")[1]
     audio_file = AUDIO[sng]      
     try:
         user_id = callback_query.from_user.id

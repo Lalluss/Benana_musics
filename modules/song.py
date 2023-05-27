@@ -190,6 +190,9 @@ async def callback_handler(client, callback_query):
     message_id = callback_data.split("#")[1]
     try:
         q = await client.get_messages(callback_query.message.chat.id, message_id)
+
+    except:
+        return
     
     try:
         user_id = callback_query.from_user.id

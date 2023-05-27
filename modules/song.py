@@ -95,7 +95,7 @@ def a(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                  InlineKeyboardButton("send personaly", callback_data=f'sendpm#{h.id}')
+                  InlineKeyboardButton("send personaly", callback_data=f'sendpm#{h.message_id}')
                 ]
             ]
         ),
@@ -168,7 +168,7 @@ def ytsng(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                  InlineKeyboardButton("send personaly", callback_data=f"sendpm#{h.id}")
+                  InlineKeyboardButton("send personaly", callback_data=f"sendpm#{h.message_id}")
                 ]
             ]
         ),

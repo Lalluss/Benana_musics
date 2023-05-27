@@ -37,7 +37,7 @@ async def start(client, message):
 
 
 @Client.on_message(filters.command(['song']) & filters.group)
-def a(client, message):
+async def song_fetch(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
@@ -72,15 +72,15 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            message.reply_text('**👎 Nothing found Retry with another !**')
+            await message.reply_text('**👎 Nothing found Retry with another !**')
             return
     except Exception as e:
-        message.reply_text(
+        await message.reply_text(
             "**Enter Song Name with /song Command!**"
         )
         print(str(e))
         return
-    m=message.reply_text("<code>✨ Fetching... </code>")
+    m=await message.reply_text("<code>✨ Fetching... </code>")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -91,7 +91,7 @@ def a(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        h = message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
+        h = await message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -101,24 +101,24 @@ def a(client, message):
         ),
         reply_to_message_id=message.message_id
         )
-        m.delete()
+        await m.delete()
     except Exception as e:
-        m.edit('**An internal Error Occured, Report This @Edit_repo !!**')
+        await m.edit('**An internal Error Occured, Report This @Edit_repo !!**')
         print(e)
     try:
-        os.remove(audio_file)
-        os.remove(thumb_name)
+        await os.remove(audio_file)
+        await os.remove(thumb_name)
     except Exception as e:
         print(e)
         
 @Client.on_message(filters.regex(r'(https?://)?.*you[^\s]+'))
-def ytsng(client, message):
+async def ytsng(client, message):
 
     downurl=message.matches[0].group(0)
 
     url =".join(message.command[1:])"
     query =".join(message.command[1:])"
-    m=message = message.reply("<code>✨ Fetching... </code>")
+    m=message = await message.reply("<code>✨ Fetching... </code>")
     
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
@@ -145,15 +145,15 @@ def ytsng(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('**👎 Nothing found Retry with another !**')
+            await m.edit('**👎 Nothing found Retry with another !**')
             return
     except Exception as e:
-        m.edit(
+        await m.edit(
             "**Enter Song Name with /song Command!**"
         )
         print(str(e))
         return
-    m.edit("`Uploading...🍁`")
+    await m.edit("`Uploading...🍁`")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -164,7 +164,7 @@ def ytsng(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        h = message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
+        h = await message.reply_audio(audio_file, caption=rep, parse_mode='HTML',quote=False, title=title, duration=dur, performer=performer, thumb=thumb_name,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -174,13 +174,13 @@ def ytsng(client, message):
         ),
         reply_to_message_id=message.message_id
         )
-        m.delete()
+        await m.delete()
     except Exception as e:
-        m.edit('**An internal Error Occured, Report This @Edit_repo !!**')
+        await m.edit('**An internal Error Occured, Report This @Edit_repo !!**')
         print(e)
     try:
-        os.remove(audio_file)
-        os.remove(thumb_name)
+        await os.remove(audio_file)
+        await os.remove(thumb_name)
     except Exception as e:
         print(e)     
 

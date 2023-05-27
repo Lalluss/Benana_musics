@@ -16,6 +16,7 @@ OWNER="Owner"
 GITCLONE="github.com/shamilhabeebnelli/song-bot"
 B2="telegram.dog/edit_repo"
 BUTTON1="🌿 Gʀᴏᴜᴘ"
+AUDIO = {}
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -81,24 +82,25 @@ async def song_fetch(client, message):
         print(str(e))
         return
     m = await message.reply_text("<code>✨ Fetching... </code>")
-    h = None  # Assign a default value to 'h'
+    
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
+            AUDIO[title] = audio_file
         rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        h = await message.reply_audio(
+        await message.reply_audio(
             audio_file, caption=rep, parse_mode='HTML', quote=False, title=title, duration=dur, performer=performer,
             thumb=thumb_name,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("send personaly", callback_data=f'sendpm#{h.message_id}')
+                        InlineKeyboardButton("send personaly", callback_data=f'sendpm#{title}')
                     ]
                 ]
             ),
@@ -108,11 +110,7 @@ async def song_fetch(client, message):
     except Exception as e:
         await m.edit('**An internal Error Occured, Report This @Edit_repo !!**')
         print(e)
-    try:
-        await os.remove(audio_file)
-        await os.remove(thumb_name)
-    except Exception as e:
-        print(e)
+    
 
 
 @Client.on_message(filters.regex(r'(https?://)?.*you[^\s]+'))
@@ -193,17 +191,12 @@ async def ytsng(client, message):
 @Client.on_callback_query(filters.regex(r"^sendpm"))
 async def callback_handler(client, callback_query):
     data = callback.data
-    message_id = callback_data.split("#")[1]
-    try:
-        q = await client.get_messages(callback_query.message.chat.id, message_id)
-
-    except:
-        return
-    
+    sng = callback_data.split("#")[1]
+    audio_file = AUDIO[sng]      
     try:
         user_id = callback_query.from_user.id
-        media = getattr(q, "audio", None)
-        await client.send_cached_media(user_id, media.file_id)
+        
+        await message.send_audio(user_id, audio_file)
         await query.answer("Audio Send Successfully")
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     

@@ -70,6 +70,7 @@ async def song_fetch(client, message):
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
+            keyw = title.split()[0]
 
         except Exception as e:
             print(e)
@@ -88,7 +89,7 @@ async def song_fetch(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-            AUDIO[title] = audio_file
+            AUDIO[keyw] = audio_file
         rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -100,7 +101,7 @@ async def song_fetch(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("send personaly", callback_data=f'sendpm#{title}')
+                        InlineKeyboardButton("send personaly", callback_data=f'sendpm#{kew}')
                     ]
                 ]
             ),

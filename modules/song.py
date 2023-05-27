@@ -6,6 +6,7 @@ import requests
 
 import os
 import time
+import hashlib 
 from config import Config
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import ChatWriteForbidden
@@ -70,7 +71,10 @@ async def song_fetch(client, message):
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
-            keyw = title.split()[0]
+            hash_object = hashlib.sha256()
+            hash_object.update(title.encode('utf-8'))
+            hash_value = hash_object.hexdigest()
+            keyw = hash_value[:5]
 
         except Exception as e:
             print(e)
@@ -150,7 +154,10 @@ async def ytsng(client, message):
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
-            keyw = title.split()[0]
+            hash_object = hashlib.sha256()
+            hash_object.update(title.encode('utf-8'))
+            hash_value = hash_object.hexdigest()
+            keyw = hash_value[:5]
 
         except Exception as e:
             print(e)

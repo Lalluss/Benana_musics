@@ -89,11 +89,13 @@ async def song_fetch(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-            AUDIO[keyw] = audio_file
-            AUDIO[keyw]["title"] = title
-            AUDIO[keyw]["duration"] = duration
-            AUDIO[keyw]["link"] = link
-            AUDIO[keyw]["thumb_name"] = thumb_name
+            AUDIO[keyw] = {
+                "audio_file": audio_file,
+                "title": title,
+                "duration": duration,
+                "link": link,
+                "thumb_name": thumb_name
+            }
         rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -167,11 +169,13 @@ async def ytsng(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-            AUDIO[keyw] = audio_file
-            AUDIO[keyw]["title"] = title
-            AUDIO[keyw]["duration"] = duration
-            AUDIO[keyw]["link"] = link
-            AUDIO[keyw]["thumb_name"] = thumb_name
+            AUDIO[keyw] = {
+                "audio_file": audio_file,
+                "title": title,
+                "duration": duration,
+                "link": link,
+                "thumb_name": thumb_name
+            }
         rep = f'<a>{title}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{link}">Click Here</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -203,7 +207,7 @@ async def ytsng(client, message):
 async def callback_handler(client, query):
     data = query.data
     sng = data.split("#")[1]
-    audio_file = AUDIO[sng]  
+    audio_file = AUDIO[sng]["audio_file"]  
     duration = AUDIO[sng]["duration"]
     title = AUDIO[sng]["title"]    
     link = AUDIO[sng]["link"]

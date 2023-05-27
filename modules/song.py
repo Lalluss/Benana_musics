@@ -187,7 +187,7 @@ def ytsng(client, message):
 @Client.on_callback_query(sendpm)
 def callback_handler(client, callback_query):
     data = callback.data
-    message_id = callback_data.split(":")[1]   "send_message:<message_id>"
+    message_id = callback_data.split(":")[1]
     try:
         message = client.get_chat_message(callback_query.message.chat.id, int(message_id))
     except Exception as e:

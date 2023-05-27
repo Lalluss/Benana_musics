@@ -105,7 +105,7 @@ async def song_fetch(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("("✨ Send - Personally ✨", callback_data=f'sendpm#{keyw}')
+                        InlineKeyboardButton("✨ Send - Personally ✨", callback_data=f'sendpm#{keyw}')
                     ]
                 ]
             ),

@@ -232,9 +232,8 @@ async def song(client, message):
     ssingers = r['data']['results'][0]['primaryArtists']
   #  album_id = r.json()[0]["albumid"]
     img = r['data']['results'][0]['image'][2]['link']
-    duration = r[data]["duration"]
+    duration = r['data']['results'][0]["duration"]
     performer = f"[@AnnabenbotZ]"
-    thumb_name = r[data]["thumb_name"]
     thumbnail = wget.download(img)
     file = wget.download(slink)
     ffile = file.replace("mp4", "mp3")

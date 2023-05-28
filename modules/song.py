@@ -220,7 +220,7 @@ async def song(client, message):
     if args.startswith(" "):
         await message.reply("/find requires an argument.")
         return
-    m= await message.reply("`Wait Am Finding Ur Song...´")
+    m= await message.reply("`Wait Am Finding Ur Song...`")
 
     try:
         r = requests.get(f"https://saavn.me/search/songs?query={args}&page=1&limit=1").json()
@@ -238,9 +238,9 @@ async def song(client, message):
     file = wget.download(slink)
     ffile = file.replace("mp4", "mp3")
     os.rename(file, ffile)
-    capp = f'<a>{sname}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{slink}">Click Here</a>'
+    cap = f'<a>{sname}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{slink}">Click Here</a>'
 
-    await message.reply_text("`✨ Fetching...´")
+    await m.edit("`✨ Fetching...`")
     await message.reply_audio(audio=ffile, title=sname, performer=ssingers,caption=cap,thumb=thumbnail)
     os.remove(ffile)
     os.remove(thumbnail)

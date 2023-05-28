@@ -119,7 +119,7 @@ async def song_fetch(client, message):
         )
         await m.delete()
     except Exception as e:
-        await m.edit('**An internal Error Occured, Report This @Edit_repo !!**')
+        await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
         print(e)
     
 
@@ -160,7 +160,7 @@ async def ytsng(client, message):
 
         except Exception as e:
             print(e)
-            await m.edit('**👎 Nothing found Retry with another !**')
+            await message.reply_text('**👎 Nothing found Retry with another !**')
             return
     except Exception as e:
         await m.edit(
@@ -168,7 +168,7 @@ async def ytsng(client, message):
         )
         print(str(e))
         return
-    await message.reply_text("`✨ Fetching... `")
+    d=await message.reply_text("`✨ Fetching... `")
     h = None  # Assign a default value to 'h'
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -199,9 +199,9 @@ async def ytsng(client, message):
             ),
             reply_to_message_id=message.message_id
         )
-        await m.delete()
+        await d.delete()
     except Exception as e:
-        await m.edit('**An internal Error Occured, Report This @Edit_repo !!**')
+        await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
         print(e)
     try:
         await os.remove(audio_file)

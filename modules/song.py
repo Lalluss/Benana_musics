@@ -128,8 +128,8 @@ async def song_fetch(client, message):
 async def ytsng(client, message):
     downurl = message.matches[0].group(0)
 
-    url = "".join(message.command[1:])""
-    query = "".join(message.command[1:])""
+    url = ".join(message.command[1:])"
+    query = ".join(message.command[1:])"
 
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:

@@ -211,16 +211,17 @@ async def ytsng(client, message):
         print(e)   
 
          
-@Client.on_message(filters.command('mp3') & filters.text)
+@Client.on_message(filters.command('find') & filters.text)
 async def song(client, message):
     try:
        args = message.text.split(None, 1)[1]
     except:
-        return await message.reply("/mp3 requires an argument.")
+        return await message.reply("/find requires an argument.")
     if args.startswith(" "):
-        await message.reply("/mp3 requires an argument.")
+        await message.reply("/find requires an argument.")
         return
- 
+    m= await message.reply("`Wait Am Finding Ur Song...´")
+
     try:
         r = requests.get(f"https://saavn.me/search/songs?query={args}&page=1&limit=1").json()
     except Exception as e:
@@ -231,12 +232,17 @@ async def song(client, message):
     ssingers = r['data']['results'][0]['primaryArtists']
   #  album_id = r.json()[0]["albumid"]
     img = r['data']['results'][0]['image'][2]['link']
+    duration = r[data]["duration"]
+    performer = f"[@AnnabenbotZ]"
+    thumb_name = r[data]["thumb_name"]
     thumbnail = wget.download(img)
     file = wget.download(slink)
     ffile = file.replace("mp4", "mp3")
     os.rename(file, ffile)
-    await message.reply_text('✨ Fetching...')
-    await message.reply_audio(audio=ffile, title=sname, performer=ssingers,caption=f"[{sname}]({r['data']['results'][0]['url']}) - from saavn ",thumb=thumbnail)
+    capp = f'<a>{sname}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{slink}">Click Here</a>'
+
+    await message.reply_text("`✨ Fetching...´")
+    await message.reply_audio(audio=ffile, title=sname, performer=ssingers,caption=cap,thumb=thumbnail)
     os.remove(ffile)
     os.remove(thumbnail)
     await m.delete()

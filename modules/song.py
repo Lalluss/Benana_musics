@@ -241,7 +241,15 @@ async def song(client, message):
     cap = f'<a>{sname}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{slink}">Click Here</a>'
 
     await m.edit("`✨ Fetching...`")
-    await message.reply_audio(audio=ffile, title=sname, performer=ssingers,caption=cap,thumb=thumbnail)
+    await message.reply_audio(audio=ffile, title=sname, performer=ssingers,caption=cap,thumb=thumbnail,
+    reply_markup=InlineKeyboardMarkup(
+           [
+              [
+                 InlineKeyboardButton("✨ Send - Personally ✨", callback_data=f"sendpm#{keyw}")
+              ]
+           ]
+        ),
+    )
     os.remove(ffile)
     os.remove(thumbnail)
     await m.delete()

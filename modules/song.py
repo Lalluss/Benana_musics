@@ -16,7 +16,7 @@ APPER="lallus"
 OWNER="Owner"
 GITCLONE="github.com/shamilhabeebnelli/song-bot"
 B2="telegram.dog/edit_repo"
-BUTTON1="🌿 Gʀᴏᴜᴘ"
+BUTTON1="🍃 Gʀᴏᴜᴘ"
 AUDIO = {}
 
 def time_to_seconds(time):

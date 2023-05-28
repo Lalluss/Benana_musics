@@ -238,6 +238,9 @@ async def song(client, message):
     file = wget.download(slink)
     ffile = file.replace("mp4", "mp3")
     os.rename(file, ffile)
+    hash_object = hashlib.sha256()
+    hash_object.update(title.encode('utf-8'))
+    hash_value = hash_object.hexdigest()
     keyw = hash_value[:5]
     
     cap = f'<a>{sname}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{slink}">Click Here</a>'

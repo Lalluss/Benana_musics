@@ -240,11 +240,11 @@ async def song(client, message):
     os.rename(file, ffile)
     cap = f'<a>{sname}</a>\n\n❍ <b>Duration:</b> <code>{duration}</code>\n❍ <b>Uploaded By:</b> <a href="https://t.me/Edit_Repo">BenbotZ</a>\n<b>❍ Source:</b> <a href="{slink}">Click Here</a>'
     r['results'][0][keyw] = {
-    "audio_file": audio_file,
-    "title": title,
+    "audio_file": file,
+    "title": sname,
     "duration": duration,
-    "link": link,
-    "thumb_name": thumb_name
+    "link": slink,
+    "thumb_name": thumbnail
     }
     await m.edit("`✨ Fetching...`")
     await message.reply_audio(audio=ffile, title=sname, performer=ssingers,caption=cap,thumb=thumbnail,

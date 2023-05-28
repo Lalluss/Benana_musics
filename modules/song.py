@@ -3,6 +3,7 @@ from pyrogram import Client, filters
 import yt_dlp
 from youtube_search import YoutubeSearch
 import requests
+import wget
 
 import os
 import time
@@ -209,9 +210,7 @@ async def ytsng(client, message):
     except Exception as e:
         print(e)   
 
-        
-from pyrogram import Client,filters
-import requests,os,wget 
+         
 @Client.on_message(filters.command('mp3') & filters.text)
 async def song(client, message):
     try:

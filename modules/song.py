@@ -239,7 +239,7 @@ async def song(client, message):
     ffile = file.replace("mp4", "mp3")
     os.rename(file, ffile)
     hash_object = hashlib.sha256()
-    hash_object.update(title.encode('utf-8'))
+    hash_object.update(sname.encode('utf-8'))
     hash_value = hash_object.hexdigest()
     keyw = hash_value[:5]
     

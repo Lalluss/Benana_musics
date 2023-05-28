@@ -128,9 +128,8 @@ async def song_fetch(client, message):
 async def ytsng(client, message):
     downurl = message.matches[0].group(0)
 
-    url = "".join(message.command[1:])
-    query = "".join(message.command[1:])
-    m = message = await message.reply("<code>✨ Fetching... </code>")
+    url = "".join(message.command[1:])""
+    query = "".join(message.command[1:])""
 
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
@@ -169,7 +168,7 @@ async def ytsng(client, message):
         )
         print(str(e))
         return
-    await m.edit("`Uploading...🍁`")
+    await message.reply_text("`✨ Fetching... `")
     h = None  # Assign a default value to 'h'
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:

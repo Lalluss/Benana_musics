@@ -209,6 +209,39 @@ async def ytsng(client, message):
     except Exception as e:
         print(e)   
 
+        
+from pyrogram import Client,filters
+import requests,os,wget 
+@Client.on_message(filters.command('mp3') & filters.text)
+async def song(client, message):
+    try:
+       args = message.text.split(None, 1)[1]
+    except:
+        return await message.reply("/mp3 requires an argument.")
+    if args.startswith(" "):
+        await message.reply("/mp3 requires an argument.")
+        return
+ 
+    try:
+        r = requests.get(f"https://saavn.me/search/songs?query={args}&page=1&limit=1").json()
+    except Exception as e:
+        await message.reply(str(e))
+        return
+    sname = r['data']['results'][0]['name']
+    slink = r['data']['results'][0]['downloadUrl'][4]['link']
+    ssingers = r['data']['results'][0]['primaryArtists']
+  #  album_id = r.json()[0]["albumid"]
+    img = r['data']['results'][0]['image'][2]['link']
+    thumbnail = wget.download(img)
+    file = wget.download(slink)
+    ffile = file.replace("mp4", "mp3")
+    os.rename(file, ffile)
+    await message.reply_text('✨ Fetching...')
+    await message.reply_audio(audio=ffile, title=sname, performer=ssingers,caption=f"[{sname}]({r['data']['results'][0]['url']}) - from saavn ",thumb=thumbnail)
+    os.remove(ffile)
+    os.remove(thumbnail)
+    await m.delete()
+    
 @Client.on_callback_query(filters.regex(r"^sendpm"))
 async def callback_handler(client, query):
     data = query.data

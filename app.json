@@ -23,7 +23,7 @@
         },
         "START_MSG": {
             "description": "Start Message of BoT",
-            "value": "<b>Hi {},\nIam A Simple Youtube to Mp3 Downloader Bot,</b>\n\nSend me Any Songs name with /song command"
+            "value": "<b>Hi {},\n I am a simple music downloader bot add me to your group and type /song song nane🤓</b>"
         },
         "START_IMG": {
             "description": "Start Message's Photo.",

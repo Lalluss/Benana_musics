@@ -1,7 +1,8 @@
 ### Mɪᴏɴ_Mᴜsɪᴄ
 ```
-You can download youtube to MP3 from telegram bot #musics
-with & without commands
+Yᴏᴜ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ Sᴏɴɢs ᴜsᴇ ᴛʜɪs ʙᴏᴛ
+ᴄᴏᴍᴍᴀɴᴅ:- /song song_name
+sSᴇɴᴅ A ʏᴏᴜᴛᴜʙᴇ ʟɪɴᴋ
 ```
 
 ## Deploy - Simplest Way

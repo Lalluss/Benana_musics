@@ -17,7 +17,7 @@ APPER="lallus"
 OWNER="Owner"
 GITCLONE="github.com/shamilhabeebnelli/song-bot"
 B2="telegram.dog/edit_repo"
-BUTTON1="🍃 Gʀᴏᴜᴘ"
+BUTTON1="🍃 Oᴘᴇɴ"
 AUDIO = {}
 
 def time_to_seconds(time):
@@ -32,12 +32,23 @@ async def start(client, message):
          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(BUTTON1, url=f"https://t.me/+BzleUoO-duFmODRl")
+                    InlineKeyboardButton(BUTTON1, callback_data="help")
                 ]
             ]
          ),
     )
 
+@Client.on_callback_query(filters.regex("help"))
+async def start(client, message):
+    await message.edit_text(text=HELP_MSG.format(message.from_user.mention),
+         reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(➕ADD ME➕, url=f"http://t.me/{cust.U_NAME}?startgroup=true")
+                ]
+            ]
+         ),
+    )
 
 @Client.on_message(filters.command(['song']) & filters.group)
 async def song_fetch(client, message):

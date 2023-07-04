@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://telegra.ph/file/68b004463396b09ebb3b3.jpg" alt="𝐌𝐈𝐎𝐍 𝐌𝐔𝐒𝐈𝐂 𝐋𝐎𝐆𝐎">
+</p>
+
 ### Mɪᴏɴ_Mᴜsɪᴄ
 ```
 𝐘𝐨𝐮 𝐜𝐚𝐧 𝐝𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐬𝐨𝐧𝐠𝐬 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐛𝐨𝐭

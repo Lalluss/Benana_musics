@@ -8,7 +8,7 @@ import wget
 import os
 import time
 import hashlib 
-from config import Config
+from config import Config, cust
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import ChatWriteForbidden
 

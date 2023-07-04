@@ -20,6 +20,9 @@ B2="telegram.dog/edit_repo"
 BUTTON1="🍃 Oᴘᴇɴ"
 AUDIO = {}
 
+FSTART_MSG = """<b>Hey {}🍁</b>
+<b>My Name Is</b>𝐌𝐈𝐎𝐍<b>Click The Open Button For Know Me More</>"""
+
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
@@ -28,7 +31,7 @@ ytregex = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[
 
 @Client.on_message(filters.command('start') & filters.private)
 async def start(client, message):
-    await message.reply_photo(photo=Config.START_IMG, caption=Config.START_MSG.format(message.from_user.mention),
+    await message.reply_photo(photo=Config.START_IMG, caption=FSTART_MSG.format(mention=message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -40,7 +43,7 @@ async def start(client, message):
 
 @Client.on_callback_query(filters.regex("help"))
 async def start(client, message):
-    await message.edit_text(text=HELP_MSG.format(message.from_user.mention),
+    await message.edit_text(text=Config.START_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [

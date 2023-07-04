@@ -47,7 +47,7 @@ async def start(client, message):
          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(➕ADD ME➕, url=f"http://t.me/{cust.U_NAME}?startgroup=true")
+                    InlineKeyboardButton("➕ADD ME➕", url=f"http://t.me/{cust.U_NAME}?startgroup=true")
                 ]
             ]
          ),

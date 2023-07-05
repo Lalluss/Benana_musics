@@ -31,7 +31,7 @@ ytregex = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[
 
 @Client.on_message(filters.command('start') & filters.private)
 async def fstart(client, message):
-    await message.reply_photo(photo=Config.START_IMG, caption=FSTART_MSG.format(mention=message.from_user.mention),
+    await message.reply_photo(photo=Config.START_IMG, caption=FSTART_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [

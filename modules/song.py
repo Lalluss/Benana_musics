@@ -21,7 +21,7 @@ BUTTON1="🍃 Oᴘᴇɴ"
 AUDIO = {}
 
 FSTART_MSG = """<b>Hey {}🍁</b>
-<b>My Name Is</b>𝐌𝐈𝐎𝐍<b>Click The Open Button For Know Me More</>"""
+<b>My Name Is</b> 𝐌𝐈𝐎𝐍 <b>Click The Open Button For Know Me More</b>"""
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -42,8 +42,8 @@ async def fstart(client, message):
     )
 
 @Client.on_callback_query(filters.regex("help"))
-async def start(client, message):
-    await message.edit_text(text=Config.START_MSG.format(message.from_user.mention),
+async def start(client, query):
+    await query.message.edit_text(text=Config.START_MSG.format(query.message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [

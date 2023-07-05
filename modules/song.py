@@ -42,8 +42,8 @@ async def fstart(client, message):
     )
 
 @Client.on_callback_query(filters.regex("help"))
-async def start(client, query):
-    await query.message.edit_text(text=Config.START_MSG.format(query.message.from_user.mention),
+async def start(client, message):
+    await message.message.edit_text(text=Config.START_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [

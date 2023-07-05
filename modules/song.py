@@ -29,7 +29,7 @@ def time_to_seconds(time):
 
 ytregex = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
 
-@Client.on_message(filters.command('start') & filters.private)
+@Client.on_message(filters.command('start'))
 async def fstart(client, message):
     await message.reply_photo(photo=Config.START_IMG, caption=FSTART_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(

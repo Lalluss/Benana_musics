@@ -48,6 +48,13 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton("➕ADD ME➕", url=f"http://t.me/{cust.U_NAME}?startgroup=true")
+                ],
+                [
+                    InlineKeyboardButton("Help", callback_data="pmhelp"),
+                    InlineKeyboardButton("About", callback_data="About")
+                ],
+                [
+                    InlineKeyboardButton("search", switch_inline_query_current_chat='')
                 ]
             ]
          ),

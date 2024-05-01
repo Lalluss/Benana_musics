@@ -5,6 +5,5 @@ youtube_dl
 youtube_search_python
 youtube_search
 requests
-aiohttp
 ffmpeg-python
 wget

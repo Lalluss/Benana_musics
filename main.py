@@ -24,7 +24,7 @@ from aiohttp import web
 from modules import web_server
 PORT = environ.get("PORT", "8080")
 
-app = web.AppRunner(web_server())
+app = web.AppRunner(await web_server())
 app.setup()
 bind_address = "0.0.0.0"
 web.TCPSite(app, bind_address, PORT).start()

@@ -22,10 +22,10 @@ from aiohttp import web
 from modules import web_server
 PORT = environ.get("PORT", "8080")
 
-app = web.AppRunner(await web_server())
-await app.setup()
+app = web.AppRunner(web_server())
+app.setup()
 bind_address = "0.0.0.0"
-await web.TCPSite(app, bind_address, PORT).start()
+web.TCPSite(app, bind_address, PORT).start()
 
 app = pyrogram.Client(
       "mlz",

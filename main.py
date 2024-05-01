@@ -1,3 +1,7 @@
+import re
+import os
+from pyrogram.raw.all import layer
+
 from pyrogram import Client, filters
 
 import youtube_dl
@@ -14,6 +18,14 @@ from config import Config
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
+from aiohttp import web
+from plugins import web_server
+PORT = environ.get("PORT", "8080")
+
+app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()
 
 app = pyrogram.Client(
       "mlz",

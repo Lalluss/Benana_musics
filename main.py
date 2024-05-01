@@ -19,7 +19,7 @@ import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from aiohttp import web
-from plugins import web_server
+from modules import web_server
 PORT = environ.get("PORT", "8080")
 
 app = web.AppRunner(await web_server())

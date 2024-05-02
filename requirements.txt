@@ -7,3 +7,14 @@ youtube_search
 requests
 ffmpeg-python
 wget
+psutil
+youtube-dl
+aiohttp
+aiofiles
+apscheduler
+mutagen
+pymongo
+bs4
+motor
+Shazamio
+Pillow

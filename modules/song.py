@@ -137,7 +137,7 @@ async def song_fetch(client, message):
                     ]
                 ]
             ),
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.id
         )
         await m.delete()
     except Exception as e:
@@ -219,7 +219,7 @@ async def ytsng(client, message):
                     ]
                 ]
             ),
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.id
         )
         await d.delete()
     except Exception as e:

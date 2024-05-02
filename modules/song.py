@@ -77,7 +77,7 @@ async def song_fetch(client, message):
             count += 1
         # results = YoutubeSearch(query, max_results=1).to_dict()
         try:
-            link = f"https://youtube.com{results[0]['url_suffix']}"
+            link = f"http://youtube.com{results[0]['url_suffix']}"
             # print(results)
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]

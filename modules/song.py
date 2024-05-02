@@ -205,7 +205,7 @@ async def ytsng(client, message):
                 "link": link,
                 "thumb_name": thumb_name
             }
-        rep = f'⍟ <code> {title} </code>\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
+        rep = f'<code> {title} </code>\n❍ Dᴜʀᴀᴛɪᴏɴ:{duration}\n❍ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n❍ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -249,7 +249,7 @@ async def song(client, message):
     except Exception as e:
         await message.reply(str(e))
         return
-    sname = r['data']['results'][0]['name']
+    sname = r['data']
     slink = r['data']['results'][0]['downloadUrl'][4]['link']
     ssingers = r['data']['results'][0]['primaryArtists']
   #  album_id = r.json()[0]["albumid"]
@@ -298,7 +298,7 @@ async def callback_handler(client, query):
     link = AUDIO[sng]["link"]
     performer = f"[@AnnabenbotZ]"
     thumb_name = AUDIO[sng]["thumb_name"]
-    rep = f'⍟ <code> {title} </code>\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
+    rep = f'<code> {title} </code>\n❍ Dᴜʀᴀᴛɪᴏɴ:{duration}\n❍ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n❍ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
     try:
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):

@@ -12,7 +12,7 @@ import time
 
 import os
 from requests import get
-from mbot.utils.util import run_cmd as runcmd
+from utils.util import run_cmd as runcmd
 import datetime
 from json import JSONDecodeError
 import requests

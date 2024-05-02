@@ -48,7 +48,7 @@ async def start(client, message):
          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("➕ADD ME➕", url=f"http://t.me/{cust.U_NAME}?startgroup=true")
+                    InlineKeyboardButton("➕ADD ME➕", url=f"http://t.me/music_2_0_bot?startgroup=true")
                 ],
                 [
                     InlineKeyboardButton("Help", callback_data="pmhelp"),

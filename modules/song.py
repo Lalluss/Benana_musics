@@ -211,7 +211,7 @@ async def ytsng(client, message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         h = await message.reply_audio(
-            audio_file, caption=rep, parse_mode='HTML', quote=False, title=title, duration=dur, performer=performer,
+            audio_file, caption=rep, parse_mode=enums.ParseMode.MARKDOWN, quote=False, title=title, duration=dur, performer=performer,
             thumb=thumb_name,
             reply_markup=InlineKeyboardMarkup(
                 [

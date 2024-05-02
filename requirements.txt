@@ -1,4 +1,4 @@
-https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
+git+https://github.com/yt-dlp/yt-dlp/
 Pyrogram
 TgCrypto==1.2.2
 yt_dlp

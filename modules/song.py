@@ -306,7 +306,7 @@ async def callback_handler(client, query):
             secmul *= 60
         user_id = query.from_user.id        
         await client.send_audio(user_id, audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, title=title, duration=dur, performer=performer, thumb=thumb_name, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɢʀᴏᴜᴘ ✨🌟", url="https://t.me/+BzleUoO-duFmODRl")]]))
-        await query.answer("Audio Send Successfully", show_alert=True)
+        await query.answer("𝙲𝚑𝚎𝚌𝚔 𝚙𝚖, 𝚈𝚞𝚘𝚛 𝚏𝚒𝚕𝚎 𝚜𝚞𝚌𝚌𝚎𝚜𝚏𝚞𝚕𝚕𝚢 𝚕𝚊𝚗𝚍𝚎𝚍 🫰🏻", show_alert=True)
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     
-        await query.answer("Start The Bot!", show_alert=True)
+        await query.answer("𝙷𝚎𝚑𝚎 𝙰𝚛𝚎 𝚢𝚘𝚞 𝚔𝚒𝚍𝚍𝚒𝚗𝚐 𝚖𝚎😂, 𝚂𝚝𝚊𝚛𝚝 𝚖𝚎 𝚏𝚒𝚛𝚜𝚝", show_alert=True)

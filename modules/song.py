@@ -7,7 +7,8 @@ import wget
 
 import os
 import time
-import hashlib 
+import hashlib
+from pyrogram import enums
 from config import Config, cust
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import ChatWriteForbidden
@@ -128,7 +129,7 @@ async def song_fetch(client, message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         await message.reply_audio(
-            audio_file, caption=rep, parse_mode='HTML', quote=False, title=title, duration=dur, performer=performer,
+            audio_file, caption=rep, parse_mode=enums.ParseMode.MARKDOWN, quote=False, title=title, duration=dur, performer=performer,
             thumb=thumb_name,
             reply_markup=InlineKeyboardMarkup(
                 [

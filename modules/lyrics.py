@@ -6,7 +6,7 @@ import requests
 import os
 
 
-API = "https://apis.xditya.me/lyrics?song="
+API = "http://apis.xditya.me/lyrics?song="
 
 @Client.on_message(filters.private & filters.text)
 async def sng(bot, message):

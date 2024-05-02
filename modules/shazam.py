@@ -19,7 +19,7 @@ from youtube_search import YoutubeSearch
 import requests
 from pyrogram import filters
 from pyrogram import Client
-from plugins.CrazyBoss.friday import humanbytes, edit_or_reply, fetch_audio
+from plugins.modules.friday import humanbytes, edit_or_reply, fetch_audio
 
 # Convert hh:mm:ss to seconds
 def time_to_seconds(time):

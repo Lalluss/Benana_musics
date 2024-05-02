@@ -129,7 +129,7 @@ async def song_fetch(client, message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         await message.reply_audio(
-            audio_file, caption=rep, parse_mode=enums.ParseMode.MARKDOWN, quote=False, title=title, duration=dur, performer=performer,
+            audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, quote=False, title=title, duration=dur, performer=performer,
             thumb=thumb_name,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -211,7 +211,7 @@ async def ytsng(client, message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         h = await message.reply_audio(
-            audio_file, caption=rep, parse_mode=enums.ParseMode.MARKDOWN, quote=False, title=title, duration=dur, performer=performer,
+            audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, quote=False, title=title, duration=dur, performer=performer,
             thumb=thumb_name,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -305,7 +305,7 @@ async def callback_handler(client, query):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         user_id = query.from_user.id        
-        await client.send_audio(user_id, audio_file, caption=rep, parse_mode=enums.ParseMode.MARKDOWN, title=title, duration=dur, performer=performer, thumb=thumb_name, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɢʀᴏᴜᴘ ✨🌟", url="https://t.me/+BzleUoO-duFmODRl")]]))
+        await client.send_audio(user_id, audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, title=title, duration=dur, performer=performer, thumb=thumb_name, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɢʀᴏᴜᴘ ✨🌟", url="https://t.me/+BzleUoO-duFmODRl")]]))
         await query.answer("Audio Send Successfully", show_alert=True)
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     

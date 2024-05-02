@@ -76,9 +76,9 @@ async def convert_to_audio(vid_path):
 @Client.on_message(filters.command(["find", "shazam"] ))
 async def shazam_(client, message):
     stime = time.time()
-    msg = await message.reply_text("`Shazaming This Song.")
+    msg = await message.reply_text("`ꜰɪɴᴅɪɴɢ ᴛʜɪꜱ ꜱᴏɴɢ🔎.....")
     if not message.reply_to_message:
-        return await msg.edit("`Reply To Song File`")
+        return await msg.edit("`ʀᴇᴩʟy ᴛᴏ ꜱᴏɴɢ ꜰɪʟᴇ`")
     if not (message.reply_to_message.audio or message.reply_to_message.voice or message.reply_to_message.video):
         return await msg.edit("`Reply To Audio File.`")
     if message.reply_to_message.video:
@@ -105,7 +105,7 @@ async def shazam_(client, message):
 <b>Size :</b> <code>{size_}</code>
 <b>Time Taken :</b> <code>{t_k} Seconds</code>
 
-<b><u>Shazamed By @Spotify_downloa_bot</b></u>
+<b><u>ᴍᴀᴅᴇ ʙy ѦηηѦ ɓ℮η</b></u>
     """
     if thumb:
         await msg.delete()

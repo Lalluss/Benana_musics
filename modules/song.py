@@ -90,7 +90,7 @@ async def song_fetch(client, message):
             #     return
 
             performer = f"[@AnnabenbotZ]"
-            thumb_name = f'thumb{message.message_id}.jpg'
+            thumb_name = f'thumb{message.id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
             hash_object = hashlib.sha256()
@@ -172,7 +172,7 @@ async def ytsng(client, message):
             views = results[0]["views"]
 
             performer = f"[@AnnabenbotZ]"
-            thumb_name = f'thumb{message.message_id}.jpg'
+            thumb_name = f'thumb{message.id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
             hash_object = hashlib.sha256()

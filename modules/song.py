@@ -123,7 +123,8 @@ async def song_fetch(client, message):
                 "link": link,
                 "thumb_name": thumb_name
             }
-        rep = f'⍟ <code> {title} </code>\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'   secmul, dur, dur_arr = 1, 0, duration.split(':')
+        rep = f'⍟ <code> {title} </code>\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
+        secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60

@@ -1,3 +1,4 @@
+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
 Pyrogram
 TgCrypto==1.2.2
 yt_dlp
@@ -18,3 +19,4 @@ bs4
 motor
 Shazamio
 Pillow
+ffprob

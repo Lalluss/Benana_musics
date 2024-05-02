@@ -22,7 +22,7 @@ BUTTON1="🍃 Oᴘᴇɴ"
 AUDIO = {}
 
 FSTART_MSG = """<b>Hey {}🍁</b>
-<b>My Name Is</b> 𝐌𝐈𝐎𝐍 <b>Click The Open Button For Know Me More</b>"""
+<b>My Name Is</b> ѦηηѦ ♭℮η <b>Click The Open Button For Know Me More</b>"""
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -123,7 +123,7 @@ async def song_fetch(client, message):
                 "link": link,
                 "thumb_name": thumb_name
             }
-        rep = f'⍟ <code> {title} </code>\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
+        rep = f'⍟ <code> {title} </code>\n\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -205,7 +205,7 @@ async def ytsng(client, message):
                 "link": link,
                 "thumb_name": thumb_name
             }
-        rep = f'<code> {title} </code>\n❍ Dᴜʀᴀᴛɪᴏɴ:{duration}\n❍ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n❍ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
+        rep = f'<code> {title} </code>\n\n❍ Dᴜʀᴀᴛɪᴏɴ:{duration}\n❍ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n❍ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -298,7 +298,7 @@ async def callback_handler(client, query):
     link = AUDIO[sng]["link"]
     performer = f"[@AnnabenbotZ]"
     thumb_name = AUDIO[sng]["thumb_name"]
-    rep = f'<code> {title} </code>\n❍ Dᴜʀᴀᴛɪᴏɴ:{duration}\n❍ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n❍ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
+    rep = f'<code> {title} </code>\n\n❍ Dᴜʀᴀᴛɪᴏɴ:{duration}\n❍ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n❍ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
     try:
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -306,7 +306,7 @@ async def callback_handler(client, query):
             secmul *= 60
         user_id = query.from_user.id        
         await client.send_audio(user_id, audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, title=title, duration=dur, performer=performer, thumb=thumb_name, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ɢʀᴏᴜᴘ ✨🌟", url="https://t.me/+BzleUoO-duFmODRl")]]))
-        await query.answer("𝙲𝚑𝚎𝚌𝚔 𝚙𝚖, 𝚈𝚞𝚘𝚛 𝚏𝚒𝚕𝚎 𝚜𝚞𝚌𝚌𝚎𝚜𝚏𝚞𝚕𝚕𝚢 𝚕𝚊𝚗𝚍𝚎𝚍 🫰🏻", show_alert=True)
+        await query.answer("Cʜᴇᴄᴋ Pᴍ, Yᴏᴜʀ Fɪʟᴇ Sᴄᴄᴇꜱꜱꜰᴜʟʟy Lᴀɴᴅᴇᴅ", show_alert=True)
     except ChatWriteForbidden:
         print("Cannot send a message to this user.")     
         await query.answer("𝙷𝚎𝚑𝚎 𝙰𝚛𝚎 𝚢𝚘𝚞 𝚔𝚒𝚍𝚍𝚒𝚗𝚐 𝚖𝚎😂, 𝚂𝚝𝚊𝚛𝚝 𝚖𝚎 𝚏𝚒𝚛𝚜𝚝", show_alert=True)

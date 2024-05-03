@@ -233,7 +233,7 @@ async def ytsng(client, message):
         print(e)   
 
          
-@Client.on_message(filters.command('find') & filters.text)
+@Client.on_message(filters.command('get') & filters.text)
 async def song(client, message):
     try:
        args = message.text.split(None, 1)[1]

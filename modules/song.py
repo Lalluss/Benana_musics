@@ -147,7 +147,7 @@ async def song_fetch(client, message):
     
 
 
-@Client.on_message(filters.regex(r'(https?://)?.*you[^\s]+'))
+@Client.on_message(filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming| filters.command(["yt","ytd","ytmusic"]) & filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming)
 async def ytsng(client, message):
     downurl = message.matches[0].group(0)
 

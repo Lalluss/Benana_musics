@@ -140,18 +140,19 @@ async def song_fetch(client, message):
             performer=performer,
             thumb=thumb_name,
         )
-        reply_markup=InlineKeyboardMarkup(
-            [
+        crazymsg = await msg.reply_text(
+            text=CRAZY_TXT,
+            reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url="crazy.link")
-                ],
-                [
-                    InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
+                   [
+                     InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url="crazy.link")
+                   ],
+                   [
+                     InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
+                   ]
                 ]
-            ]
+            ),
         )
-        await d.delete()
-        crazymsg = await msg.reply_text(text=CRAZY_TXT)
     except Exception as e:
         print(f"{e}")
     

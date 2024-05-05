@@ -139,7 +139,7 @@ async def song_fetch(client, message):
         duration=dur,
         performer=performer,
         thumb=thumb_name,
-        reply_to_message_id=message.reply_to_message.message_id
+        message=message.reply_to_message.message_id
     )
     buttons = [
         [
@@ -151,13 +151,13 @@ async def song_fetch(client, message):
         [
             InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🗑️", callback_data='close')
         ]
-       ]
-       reply_markup = InlineKeyboardMarkup(buttons)
-       crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
-       await m.delete()
-    except Exception as e:
-        await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
-        print(e)
+    ]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
+    await m.delete()
+except Exception as e:
+    await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
+    print(e)
         
 
 @Client.on_message(filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming| filters.command(["yt","ytd","ytmusic"]) & filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming)

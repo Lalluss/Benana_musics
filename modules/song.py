@@ -65,6 +65,7 @@ async def start(client, message):
 
 @Client.on_message(filters.command(['song']) & filters.group)
 async def song_fetch(client, message):
+    msg = message
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
@@ -146,7 +147,7 @@ async def song_fetch(client, message):
                 InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
             ]
         ]
-        crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
+        crazymsg = await msg.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
     except Exception as e:
         print(f"{e}")
     

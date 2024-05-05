@@ -146,14 +146,13 @@ async def song_fetch(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                    [
-                     InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", callback_data='crazy.link')
+                     InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", callback_data="crazy.link")
                    ],
                    [
                      InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+j4kOYjoPw9dmMDll")
                    ]
                 ]
             ),
-            reply_markup = reply_markup
         )
     except Exception as e:
         print(f"{e}")

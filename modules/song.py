@@ -147,7 +147,7 @@ async def song_fetch(client, message):
                 InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
             ]
         ]
-        crazymsg = await msg.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
+        crazymsg = await msg.reply_text(text=CRAZY_TXT.format(caption), caption="hello", reply_markup=reply_markup)
     except Exception as e:
         print(f"{e}")
     

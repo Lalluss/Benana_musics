@@ -134,7 +134,7 @@ async def song_fetch(client, message):
             chat_id=CHANNEL,
             audio=audio_file,
             caption=rep,
-            parse_mode=enums.ParseMode.HTML,
+            parse_mode=enums.ParseMode.MARKDOWN,
             title=title,
             duration=dur,
             performer=performer,

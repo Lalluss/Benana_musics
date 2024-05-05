@@ -145,9 +145,6 @@ crazy = await client.send_audio(
             crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption, reply_markup=reply_markup)
         )
         await m.delete()
-    except Exception as e:
-        await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
-        print(e)
     
 
 

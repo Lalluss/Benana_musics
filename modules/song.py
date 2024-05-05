@@ -20,6 +20,8 @@ GITCLONE="github.com/shamilhabeebnelli/song-bot"
 B2="telegram.dog/edit_repo"
 BUTTON1="🍃 Oᴘᴇɴ"
 AUDIO = {}
+CHANNEL = int("-1002078583814")
+CRAZY_TXT = """Music: {caption}"""
 
 FSTART_MSG = """<b>Hey {}🍁</b>
 <b>My Name Is</b> ѦηηѦ ♭℮η <b>Click The Open Button For Know Me More</b>"""
@@ -128,17 +130,19 @@ async def song_fetch(client, message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        await message.reply_audio(
-            audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, quote=False, title=title, duration=dur, performer=performer,
+crazy = await client.send_audio(
+            chat_id=CHANNEL, audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, quote=False, title=title, duration=dur, performer=performer,
             thumb=thumb_name,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("✨ Send - Personally ✨", callback_data=f'sendpm#{keyw}')
-                    ]
-                ]
-            ),
-            reply_to_message_id=message.id
+            message = message.reply_to_message
+            buttons = [[
+                InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url=f"{crazy.link}")
+                ],[
+                InlineKeyboardButton(" Can't Access? Click Here ", url=f"https://t.me/+llHTG1lBN8E2ZmQ9")
+                ],[
+                InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🗑️", callback_data='close')
+            ]]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            crazymsg = await message.reply_text(text=script.CRAZY_TXT.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption), reply_markup=reply_markup)
         )
         await m.delete()
     except Exception as e:

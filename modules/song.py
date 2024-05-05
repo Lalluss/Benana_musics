@@ -131,20 +131,30 @@ async def song_fetch(client, message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         crazy = await client.send_audio(
-            chat_id=CHANNEL, audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, quote=False, title=title, duration=dur, performer=performer,
-            thumb=thumb_name,
-            message = message.reply_to_message
-            buttons = [[
-                InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url=f"{crazy.link}")
-                ],[
-                InlineKeyboardButton(" Can't Access? Click Here ", url=f"https://t.me/+llHTG1lBN8E2ZmQ9")
-                ],[
-                InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🗑️", callback_data='close')
-            ]]
-            reply_markup = InlineKeyboardMarkup(buttons)
-            crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption, reply_markup=reply_markup)
-        )
-        await m.delete()
+        chat_id=CHANNEL,
+        audio=audio_file,
+        caption=rep,
+        parse_mode=enums.ParseMode.HTML,
+        title=title,
+        duration=dur,
+        performer=performer,
+        thumb=thumb_name,
+        reply_to_message_id=message.reply_to_message.message_id
+    )
+    buttons = [
+        [
+            InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url=crazy.link)
+        ],
+        [
+            InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
+        ],
+        [
+            InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🗑️", callback_data='close')
+        ]
+       ]
+       reply_markup = InlineKeyboardMarkup(buttons)
+       crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
+       await m.delete()
     except Exception as e:
         await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
         print(e)

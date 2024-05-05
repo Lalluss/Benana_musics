@@ -149,7 +149,7 @@ async def song_fetch(client, message):
             ]
         ]
         await d.delete()
-        crazymsg = await msg.reply_text(text=CRAZY_TXT, InlineKeyboardMarkup=reply_markup)
+        crazymsg = await msg.reply_text(text=CRAZY_TXT, reply_markup=InlineKeyboardMarkup)
     except Exception as e:
         print(f"{e}")
     

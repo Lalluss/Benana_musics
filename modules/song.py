@@ -130,7 +130,7 @@ async def song_fetch(client, message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-crazy = await client.send_audio(
+        crazy = await client.send_audio(
             chat_id=CHANNEL, audio_file, caption=rep, parse_mode=enums.ParseMode.HTML, quote=False, title=title, duration=dur, performer=performer,
             thumb=thumb_name,
             message = message.reply_to_message
@@ -145,8 +145,10 @@ crazy = await client.send_audio(
             crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption, reply_markup=reply_markup)
         )
         await m.delete()
-    
-
+    except Exception as e:
+        await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
+        print(e)
+        
 
 @Client.on_message(filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming| filters.command(["yt","ytd","ytmusic"]) & filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming)
 async def ytsng(client, message):

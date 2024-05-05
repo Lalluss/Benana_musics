@@ -137,7 +137,6 @@ async def song_fetch(client, message):
             duration=dur,
             performer=performer,
             thumb=thumb_name,
-            message=message
         )
         reply_markup = [
             [

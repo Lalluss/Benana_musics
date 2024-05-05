@@ -134,7 +134,7 @@ async def song_fetch(client, message):
             chat_id=CHANNEL,
             audio=audio_file,
             caption=rep,
-            parse_mode=enums.ParseMode.MARKDOWN,
+            parse_mode=enums.ParseMode.HTML,
             title=title,
             duration=dur,
             performer=performer,
@@ -142,6 +142,7 @@ async def song_fetch(client, message):
         )
         await d.delete()
         crazymsg = await msg.reply_text(
+            parse_mode=enums.ParseMode.MARKDOWN,
             text=CRAZY_TXT,
             reply_markup=InlineKeyboardMarkup(
                 [

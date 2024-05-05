@@ -142,7 +142,6 @@ async def song_fetch(client, message):
         )
         await d.delete()
         crazymsg = await msg.reply_text(
-            parse_mode=enums.ParseMode.MARKDOWN,
             text=CRAZY_TXT,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -150,7 +149,7 @@ async def song_fetch(client, message):
                      InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", callback_data='crazy.link')
                    ],
                    [
-                     InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
+                     InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+j4kOYjoPw9dmMDll")
                    ]
                 ]
             ),

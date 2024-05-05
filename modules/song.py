@@ -154,6 +154,8 @@ async def song_fetch(client, message):
                    ]
                 ]
             ),
+            reply_to_message_id=message.id
+            disable_web_page_preview
         )
     except Exception as e:
         print(f"{e}")

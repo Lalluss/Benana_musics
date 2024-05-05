@@ -147,7 +147,7 @@ async def song_fetch(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                    [
-                     InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url="crazy.link")
+                     InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url="crazy")
                    ],
                    [
                      InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")

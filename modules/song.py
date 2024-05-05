@@ -141,20 +141,19 @@ async def song_fetch(client, message):
         thumb=thumb_name,
         message=message.reply_to_message.message_id
     )
-    buttons = [[
+    buttons = [
         [
             InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url=crazy.link)
         ],
         [
             InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
         ]
-    ]]
+    ]
     reply_markup = InlineKeyboardMarkup(buttons)
     crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
-    await m.delete()
 except Exception as e:
-    await message.reply_text('**An internal Error Occured, Report This @Edit_repo !!**')
-    print(e)
+        m.edit('**An Internal error occured; Report This @redbullfed!!**')
+        print(e)
         
 
 @Client.on_message(filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming| filters.command(["yt","ytd","ytmusic"]) & filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming)

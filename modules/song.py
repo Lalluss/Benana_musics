@@ -153,6 +153,7 @@ async def song_fetch(client, message):
                    ]
                 ]
             ),
+            reply_markup = reply_markup
         )
     except Exception as e:
         print(f"{e}")

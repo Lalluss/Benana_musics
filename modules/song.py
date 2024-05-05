@@ -140,6 +140,7 @@ async def song_fetch(client, message):
             performer=performer,
             thumb=thumb_name,
         )
+        await d.delete()
         crazymsg = await msg.reply_text(
             text=CRAZY_TXT,
             reply_markup=InlineKeyboardMarkup(

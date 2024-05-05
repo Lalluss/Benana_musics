@@ -21,7 +21,7 @@ B2="telegram.dog/edit_repo"
 BUTTON1="🍃 Oᴘᴇɴ"
 AUDIO = {}
 CHANNEL = int("-1002078583814")
-CRAZY_TXT = """Music: {caption}"""
+CRAZY_TXT = """Music: {}"""
 
 FSTART_MSG = """<b>Hey {}🍁</b>
 <b>My Name Is</b> ѦηηѦ ♭℮η <b>Click The Open Button For Know Me More</b>"""
@@ -142,7 +142,7 @@ crazy = await client.send_audio(
                 InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🗑️", callback_data='close')
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
-            crazymsg = await message.reply_text(text=script.CRAZY_TXT.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption), reply_markup=reply_markup)
+            crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption, reply_markup=reply_markup)
         )
         await m.delete()
     except Exception as e:

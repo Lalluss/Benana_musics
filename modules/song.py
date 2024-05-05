@@ -141,17 +141,14 @@ async def song_fetch(client, message):
         thumb=thumb_name,
         message=message.reply_to_message.message_id
     )
-    buttons = [
+    buttons = [[
         [
             InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url=crazy.link)
         ],
         [
             InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
-        ],
-        [
-            InlineKeyboardButton("𝖢𝗅𝗈𝗌𝖾 🗑️", callback_data='close')
         ]
-    ]
+    ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
     await m.delete()

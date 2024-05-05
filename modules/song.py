@@ -142,14 +142,14 @@ async def song_fetch(client, message):
         message=message.reply_to_message.message_id
     )
     reply_markup = InlineKeyboardMarkup(
+    [
         [
-            [
-                InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url=crazy.link)
-            ],
-            [
-                InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
-            ]
+            InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url="crazy.link")
+        ],
+        [
+            InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
         ]
+    ]
     )
     crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
         

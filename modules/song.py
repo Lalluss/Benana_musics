@@ -112,44 +112,44 @@ async def song_fetch(client, message):
         print(str(e))
         return
     try:
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info_dict = ydl.extract_info(link, download=False)
-        audio_file = ydl.prepare_filename(info_dict)
-        ydl.process_info(info_dict)
-        AUDIO[keyw] = {
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            audio_file = ydl.prepare_filename(info_dict)
+            ydl.process_info(info_dict)
+            AUDIO[keyw] = {
             "audio_file": audio_file,
             "title": title,
             "duration": duration,
             "link": link,
             "thumb_name": thumb_name
         }
-    rep = f'⍟ <code> {title} </code>\n\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
-    secmul, dur, dur_arr = 1, 0, duration.split(':')
-    for i in range(len(dur_arr) - 1, -1, -1):
-        dur += (int(dur_arr[i]) * secmul)
-        secmul *= 60
-    crazy = await client.send_audio(
-        chat_id=CHANNEL,
-        audio=audio_file,
-        caption=rep,
-        parse_mode=enums.ParseMode.HTML,
-        title=title,
-        duration=dur,
-        performer=performer,
-        thumb=thumb_name,
-        message=message.reply_to_message.message_id
-    )
-    reply_markup = [
-        [
-            InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url="crazy.link")
-        ],
-        [
-            InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
+        rep = f'⍟ <code> {title} </code>\n\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href={link}>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/kerala_music_group_2>Kᴇʀᴀʟᴀ Mᴜsɪᴄ</a>'
+        secmul, dur, dur_arr = 1, 0, duration.split(':')
+        for i in range(len(dur_arr) - 1, -1, -1):
+            dur += (int(dur_arr[i]) * secmul)
+            secmul *= 60
+        crazy = await client.send_audio(
+            chat_id=CHANNEL,
+            audio=audio_file,
+            caption=rep,
+            parse_mode=enums.ParseMode.HTML,
+            title=title,
+            duration=dur,
+            performer=performer,
+            thumb=thumb_name,
+            message=message.reply_to_message.message_id
+        )
+        reply_markup = [
+            [
+                InlineKeyboardButton("ＤＯＷＮＬＯＡＤ", url="crazy.link")
+            ],
+            [
+                InlineKeyboardButton("Can't Access? Click Here", url="https://t.me/+llHTG1lBN8E2ZmQ9")
+            ]
         ]
-    ]
-    crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
-except Exception as e:
-    print(f"{e}")
+        crazymsg = await message.reply_text(text=CRAZY_TXT.format(caption), reply_markup=reply_markup)
+    except Exception as e:
+        print(f"{e}")
     
 @Client.on_message(filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming| filters.command(["yt","ytd","ytmusic"]) & filters.regex(r'(https?:\/\/(?:www\.)?youtu\.?be(?:\.com)?\/.*)') & filters.incoming)
 async def ytsng(client, message):

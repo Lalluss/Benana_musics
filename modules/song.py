@@ -4,7 +4,7 @@ import yt_dlp
 from youtube_search import YoutubeSearch
 import requests
 import wget
-
+import random
 import os
 import time
 import hashlib
@@ -67,6 +67,7 @@ async def start(client, message):
 
 @Client.on_message(filters.command(['song']) & filters.group)
 async def song_fetch(client, message):
+    await message.react(emoji=random.choice(REACTIONS))
     msg = message
     query = ''
     for i in message.command[1:]:
@@ -148,7 +149,6 @@ async def song_fetch(client, message):
             InlineKeyboardButton("🔰JOIN CHANNEL🔰", url='https://t.me/+j4kOYjoPw9dmMDll')
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
-        await message.react(emoji=random.choice(REACTIONS))
         await d.delete()
         await message.reply_text(
             text = f"Hi click the below link and download the movies🍿\n\nERROR? Click the join channel button and try again \n\n{crazy.link}",

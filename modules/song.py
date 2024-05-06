@@ -141,7 +141,7 @@ async def song_fetch(client, message):
             thumb=thumb_name,
         )
         btn = [[
-            InlineKeyboardButton("♻️DOWNLOAD♻️", callback_data=f"{crazy.link}")
+            InlineKeyboardButton("♻️DOWNLOAD♻️", url=f"{crazy.link}")
             ],[
             InlineKeyboardButton("🔰JOIN CHANNEL🔰", url='https://t.me/+j4kOYjoPw9dmMDll')
         ]]

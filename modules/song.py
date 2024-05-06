@@ -67,7 +67,6 @@ async def start(client, message):
 
 @Client.on_message(filters.command(['song']) & filters.group)
 async def song_fetch(client, message):
-    await client.send_reaction(emoji=random.choice(REACTIONS))
     msg = message
     query = ''
     for i in message.command[1:]:
@@ -142,6 +141,14 @@ async def song_fetch(client, message):
             duration=dur,
             performer=performer,
             thumb=thumb_name,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("✨ Send - Personally ✨", callback_data=f"sendpm#{keyw}")
+                    ]
+                ]
+            ),
+            reply_to_message_id=message.id
         )
         btn = [[
             InlineKeyboardButton("♻️DOWNLOAD♻️", url=f"{crazy.link}")

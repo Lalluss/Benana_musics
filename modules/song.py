@@ -23,6 +23,8 @@ AUDIO = {}
 CHANNEL = int("-1002078583814")
 CRAZY_TXT = """Music: {}"""
 
+REACTIONS = ["🔥", "❤️", "😍", "⚡", "👍", "👎", "❤", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🙏", "👌", "🕊", "🤡", "❤‍🔥", "🌚", "🌭", "💯", "🤣", "⚡", "🏆", "🍾", "💋", "😈", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍", "🤗", "🫡", "🎅", "🎄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂", "🤷", "🤷‍♀", "😡"]
+
 FSTART_MSG = """<b>Hey {}🍁</b>
 <b>My Name Is</b> ѦηηѦ ♭℮η <b>Click The Open Button For Know Me More</b>"""
 
@@ -146,6 +148,7 @@ async def song_fetch(client, message):
             InlineKeyboardButton("🔰JOIN CHANNEL🔰", url='https://t.me/+j4kOYjoPw9dmMDll')
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
+        await message.react(emoji=random.choice(REACTIONS))
         await d.delete()
         await message.reply_text(
             text = f"Hi click the below link and download the movies🍿\n\nERROR? Click the join channel button and try again \n\n{crazy.link}",

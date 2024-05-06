@@ -140,13 +140,13 @@ async def song_fetch(client, message):
             performer=performer,
             thumb=thumb_name,
         )
-        await d.delete
         btn = [[
             InlineKeyboardButton("♻️DOWNLOAD♻️", callback_data='crazy.link')
             ],[
             InlineKeyboardButton("🔰JOIN CHANNEL🔰", url='https://t.me/+j4kOYjoPw9dmMDll')
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
+        await d.delete
         await query.message.reply_text(
             text = f"Hi click the below link and download the movies🍿\n\nERROR? Click the join channel button and try again \n\n{crazy.link}",
             reply_markup = reply_markup

@@ -158,7 +158,7 @@ async def song_fetch(client, message):
         reply_markup = InlineKeyboardMarkup(btn)
         await d.delete()
         await message.reply_text(
-            text = f"Hi click the below link and download the movies🍿\n\nERROR? Click the join channel button and try again \n\n{crazy.link}",
+            text = f"ʜɪ {message.from_user.mention}\nyᴏᴜʀ ᴀᴜᴅɪᴏ {title} upload successfully\n\nᴄᴀɴᴛ ᴀᴄᴄᴇꜱꜱ ᴩʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ",
             reply_markup = reply_markup
         )
     except Exception as e:

@@ -67,7 +67,7 @@ async def start(client, message):
 
 @Client.on_message(filters.command(['song']) & filters.group)
 async def song_fetch(client, message):
-    await message.react(emoji=random.choice(REACTIONS))
+    await client.react(emoji=random.choice(REACTIONS))
     msg = message
     query = ''
     for i in message.command[1:]:

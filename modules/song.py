@@ -152,7 +152,7 @@ async def song_fetch(client, message):
                 thumb=thumb_name                
             )
             btn = [[
-                InlineKeyboardButton("🎶ʜᴇʀᴇ ɪꜱ yᴏᴜʀ ᴍᴜꜱɪᴄ🎶", url=f"{crazy.link}")               
+                InlineKeyboardButton("🎶ʜᴇʀᴇ ɪꜱ yᴏᴜʀ ᴍᴜꜱɪᴄ🎶", url=f"https://telegram.me/{Config.BOT_USERNAME}")               
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await d.delete()

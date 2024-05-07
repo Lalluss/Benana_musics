@@ -141,7 +141,7 @@ async def song_fetch(client, message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         crazy = await client.send_audio(
-            chat_id=CHANNEL,
+            chat_id=f"https://telegram.me/{config.BOT_USERNAME}",
             audio=audio_file,
             caption=rep,
             parse_mode=enums.ParseMode.HTML,

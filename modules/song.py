@@ -140,36 +140,37 @@ async def song_fetch(client, message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        crazy = await client.send_audio(
-            chat_id= CHANNEL,
-            audio=audio_file,
-            caption=rep,
-            parse_mode=enums.ParseMode.HTML,
-            title=title,
-            duration=dur,
-            performer=performer,
-            thumb=thumb_name,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("✨ Send - Personally ✨", callback_data=f"sendpm#{keyw}")
-                    ]
-                ]
-            ),
-            reply_to_message_id=message.id
-        )
-        btn = [[
-            InlineKeyboardButton("🎶ʜᴇʀᴇ ɪꜱ yᴏᴜʀ ᴍᴜꜱɪᴄ🎶", url=f"{crazy.link}")
-            ],[
-            InlineKeyboardButton("🎧ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ🎧", url='https://t.me/+j4kOYjoPw9dmMDll')
-        ]]
-        reply_markup = InlineKeyboardMarkup(btn)
-        await d.delete()
-        await message.reply_photo(
-            photo=f'thumb{message.id}.jpg',
-            caption = f"ʜɪ {message.from_user.mention}\nyᴏᴜʀ ᴀᴜᴅɪᴏ {title} upload successfully\n\nᴄᴀɴᴛ ᴀᴄᴄᴇꜱꜱ ᴩʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ",
-            reply_markup = reply_markup
-        )
+        try:
+            crazy = await client.send_audio(
+                chat_id= CHANNEL,
+                audio=audio_file,
+                caption=rep,
+                parse_mode=enums.ParseMode.HTML,
+                title=title,
+                duration=dur,
+                performer=performer,
+                thumb=thumb_name                
+            )
+            btn = [[
+                InlineKeyboardButton("🎶ʜᴇʀᴇ ɪꜱ yᴏᴜʀ ᴍᴜꜱɪᴄ🎶", url=f"https://telegram.me/{Config.BOT_USERNAME}")               
+            ]]
+            reply_markup = InlineKeyboardMarkup(btn)
+            await d.delete()
+            await message.reply_photo(
+                photo=f'thumb{message.id}.jpg',
+                caption = f"ʜɪ {message.from_user.mention}\nyᴏᴜʀ ᴀᴜᴅɪᴏ {title} upload successfully\n\nᴄᴀɴᴛ ᴀᴄᴄᴇꜱꜱ ᴩʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ",
+                reply_markup = reply_markup
+            )
+        except Exception as e:
+            await d.delete()
+            btn = [[
+                InlineKeyboardButton("Need to start Here🤗", url=f"https://telegram.me/{Config.BOT_USERNAME}?start")               
+            ]]
+            reply_markup = InlineKeyboardMarkup(btn)
+            await message.reply_text(
+                text="You have never started my pm 😞 \nyou need to start my pmthen only i can send file\n\nclick the button bellow to start👇",
+                reply_markup = reply_markup
+            )
     except Exception as e:
         print(f"{e}")
     

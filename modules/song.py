@@ -166,7 +166,7 @@ async def song_fetch(client, message):
         reply_markup = InlineKeyboardMarkup(btn)
         await d.delete()
         await message.reply_photo(
-            photo=thumb,
+            photo=f'thumb{message.id}.jpg',
             caption = f"ʜɪ {message.from_user.mention}\nyᴏᴜʀ ᴀᴜᴅɪᴏ {title} upload successfully\n\nᴄᴀɴᴛ ᴀᴄᴄᴇꜱꜱ ᴩʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ",
             reply_markup = reply_markup
         )

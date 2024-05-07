@@ -24,7 +24,15 @@ CHANNEL = int("-1002078583814")
 CRAZY_TXT = """Music: {}"""
 
 REACTIONS = ["🔥", "❤️", "😍", "⚡", "👍", "👎", "❤", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🙏", "👌", "🕊", "🤡", "❤‍🔥", "🌚", "🌭", "💯", "🤣", "⚡", "🏆", "🍾", "💋", "😈", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍", "🤗", "🫡", "🎅", "🎄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂", "🤷", "🤷‍♀", "😡"]
-
+MYPIC = ["https://telegra.ph/file/6d748fa7e05e4d40454e7.jpg",
+         "https://telegra.ph/file/39fa9020d7e85b126c2f7.jpg",
+         "https://telegra.ph/file/3be6a1d4c4e1ea396e51c.jpg",
+         "https://telegra.ph/file/1e25e187f389c67bec79b.jpg",
+         "https://telegra.ph/file/aec7cbada105344a6ebd3.jpg",
+         "https://telegra.ph/file/83031dbe225246b9bbb1d.jpg",
+         "https://telegra.ph/file/97ac99cfc840158a81ae7.jpg",
+        ]
+         
 FSTART_MSG = """<b>Hey {}🍁</b>
 <b>My Name Is</b> ѦηηѦ ♭℮η <b>Click The Open Button For Know Me More</b>"""
 
@@ -151,14 +159,15 @@ async def song_fetch(client, message):
             reply_to_message_id=message.id
         )
         btn = [[
-            InlineKeyboardButton("♻️DOWNLOAD♻️", url=f"{crazy.link}")
+            InlineKeyboardButton("🎶ʜᴇʀᴇ ɪꜱ yᴏᴜʀ ᴍᴜꜱɪᴄ🎶", url=f"{crazy.link}")
             ],[
-            InlineKeyboardButton("🔰JOIN CHANNEL🔰", url='https://t.me/+j4kOYjoPw9dmMDll')
+            InlineKeyboardButton("🎧ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ🎧", url='https://t.me/+j4kOYjoPw9dmMDll')
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
         await d.delete()
-        await message.reply_text(
-            text = f"ʜɪ {message.from_user.mention}\nyᴏᴜʀ ᴀᴜᴅɪᴏ {title} upload successfully\n\nᴄᴀɴᴛ ᴀᴄᴄᴇꜱꜱ ᴩʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ",
+        await message.reply_photo(
+            photo=random.choice(MYPIC),
+            caption = f"ʜɪ {message.from_user.mention}\nyᴏᴜʀ ᴀᴜᴅɪᴏ {title} upload successfully\n\nᴄᴀɴᴛ ᴀᴄᴄᴇꜱꜱ ᴩʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ",
             reply_markup = reply_markup
         )
     except Exception as e:

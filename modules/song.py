@@ -142,7 +142,7 @@ async def song_fetch(client, message):
             secmul *= 60
         try:
             crazy = await client.send_audio(
-                chat_id= CHANNEL,
+                chat_id=message.from_user.id,
                 audio=audio_file,
                 caption=rep,
                 parse_mode=enums.ParseMode.HTML,

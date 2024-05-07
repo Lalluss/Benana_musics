@@ -152,7 +152,7 @@ async def song_fetch(client, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("ɢʀᴏᴜᴏ", url="https://t.me/+C-roFYwh93QxOTM1")
+                        InlineKeyboardButton("✨ Send - Personally ✨", callback_data=f"sendpm#{keyw}")
                     ]
                 ]
             ),

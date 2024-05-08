@@ -21,7 +21,6 @@ B2="telegram.dog/edit_repo"
 BUTTON1="🍃 Oᴘᴇɴ"
 AUDIO = {}
 CHANNEL = int("-1002078583814")
-CRAZY_TXT = """Music: {}"""
 
 REACTIONS = ["🔥", "❤️", "😍", "⚡", "👍", "👎", "❤", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🙏", "👌", "🕊", "🤡", "❤‍🔥", "🌚", "🌭", "💯", "🤣", "⚡", "🏆", "🍾", "💋", "😈", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍", "🤗", "🫡", "🎅", "🎄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂", "🤷", "🤷‍♀", "😡"]
 MYPIC = ["https://telegra.ph/file/6d748fa7e05e4d40454e7.jpg",
@@ -158,17 +157,17 @@ async def song_fetch(client, message):
             await d.delete()
             await message.reply_photo(
                 photo=f'thumb{message.id}.jpg',
-                caption = f"ʜɪ {message.from_user.mention}\nyᴏᴜʀ ᴀᴜᴅɪᴏ {title} upload successfully\n\nᴄᴀɴᴛ ᴀᴄᴄᴇꜱꜱ ᴩʟᴇᴀꜱᴇ ᴄʟɪᴄᴋ ᴛʜᴇ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʙᴜᴛᴛᴏɴ",
+                caption = f"ʜɪ {message.from_user.mention}🍁\n\nyʀᴇqᴜᴇꜱᴛᴇᴅ: {title} ᴜᴩʟᴏᴀᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟy\n\nᴛʜᴀɴᴋ yᴏᴜ ꜰᴏʀ ʀᴇqᴜᴇꜱᴛ ʜᴇʀᴇ❤️‍🔥 ʀᴇqᴜᴇꜱᴛ ᴀɢᴀɪɴ 🤗",
                 reply_markup = reply_markup
             )
         except Exception as e:
             await d.delete()
             btn = [[
-                InlineKeyboardButton("Need to start Here🤗", url=f"https://telegram.me/{Config.BOT_USERNAME}?start")               
+                InlineKeyboardButton("ɴᴇᴇᴅ ᴛᴏ ꜱᴛᴀʀᴛ ʜᴇʀᴇ🤧", url=f"https://telegram.me/{Config.BOT_USERNAME}?start")               
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await message.reply_text(
-                text="You have never started my pm 😞 \nyou need to start my pmthen only i can send file\n\nclick the button bellow to start👇",
+                text="yᴏᴜ ʜᴀᴠᴇ ɴᴇᴠᴇʀ ꜱᴛᴀʀᴛᴇᴅ ᴍy ᴩᴍ😞 \nyᴏᴜ ɴᴇᴇᴅ ᴛᴏ ꜱᴛᴀʀᴛ ᴍy ᴩᴍ ᴛʜᴇɴ ɪ ᴄᴀɴ ꜱᴇɴᴅ ꜰɪʟᴇ\n\nᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟʟᴏᴡ ᴛᴏ ꜱᴛᴀʀᴛ👇",
                 reply_markup = reply_markup
             )
     except Exception as e:

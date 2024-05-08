@@ -55,8 +55,7 @@ senko_group = 6
     & filters.incoming
     & filters.reply
     & ~filters.via_bot
-    & ~filters.bot
-    & ~filters.edited,
+    & ~filters.bot,
     group=senko_group,
 )
 async def senko(_, message):

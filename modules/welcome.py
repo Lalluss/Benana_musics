@@ -9,7 +9,7 @@ import math
 from PIL import Image, ImageDraw, ImageFont
 
 
-@client.on_message(filters.new_chat_members)
+@Client.on_message(filters.new_chat_members)
 async def new(_, m: Message):
     if m.from_user.id:
         chat = m.chat.title 
@@ -50,7 +50,7 @@ async def new(_, m: Message):
   
 senko_group = 6
  
-@client.on_message(
+@Client.on_message(
     filters.group
     & filters.incoming
     & filters.reply

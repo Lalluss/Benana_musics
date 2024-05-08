@@ -113,7 +113,7 @@ async def song_fetch(client, message):
 
         except Exception as e:
             print(e)
-            await message.reply_text('**👎 Nothing found Retry with another !**')
+            await message.reply_text(f'👋ʜᴇy  {message.from_user.mention}  its very easy to request music here\n\nʀᴇqᴜᴇꜱᴛ - ᴇxᴀᴍᴩʟᴇꜱ:\n<code>➲ /song Srivalli Malayalam</code>\n➲ <code>/song Darshana hridayam</code>\n➲ <code>/song Alone - Marshmallow</code>\n<code>➲ /song Aathmavile anandhame</code>\n➲ <code>/song Parayathe vannnen</code>\n\nʜᴏᴩᴇ yᴏᴜ ᴜɴᴅᴇʀꜱᴛᴏᴏᴅ 😌🍭')
             return
     except Exception as e:
         await message.reply_text(

@@ -67,8 +67,7 @@ async def start(client, message):
     )
 @Client.on_callback_query(filters.regex("cracker"))
 async def pmhelp(client, message):
-    await d.delete()
-    await message.send_photo(photo=MY_PIC, caption=Config.HELP_MSG.format(message.from_user.mention),
+    await message.edit_text(text=Config.HELP_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [

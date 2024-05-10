@@ -33,7 +33,7 @@ MYPIC = ["https://telegra.ph/file/6d748fa7e05e4d40454e7.jpg",
         ]
          
 FSTART_MSG = """<b>Hey {}🍁</b>
-<b>My Name Is</b> ѦηηѦ ♭℮η <b>Click The Open Button For Know Me More</b>"""
+<b>My Name Is</b> ᴀɴɢᴀʟɪɴᴇ <b>Click The Open Button For Know Me More</b>"""
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -59,14 +59,14 @@ async def start(client, message):
          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("➕ADD ME➕", url=f"http://t.me/music_2_0_bot?startgroup=true")
+                    InlineKeyboardButton("➕ᴀᴅᴅ ᴍᴇ➕", url=f"http://t.me/music_2_0_bot?startgroup=true")
                 ],
                 [
-                    InlineKeyboardButton("Help", callback_data="pmhelp"),
-                    InlineKeyboardButton("About", callback_data="About")
+                    InlineKeyboardButton("🍁ʜᴇʟᴩ🍁", callback_data="pmhelp"),
+                    InlineKeyboardButton("🍀ᴀʙᴏᴜᴛ🍀", callback_data="About")
                 ],
                 [
-                    InlineKeyboardButton("search", switch_inline_query_current_chat='')
+                    InlineKeyboardButton("🔍ꜱᴇᴀʀᴄʜ🔎", switch_inline_query_current_chat='')
                 ]
             ]
          ),

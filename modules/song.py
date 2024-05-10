@@ -23,13 +23,7 @@ AUDIO = {}
 CHANNEL = int("-1002078583814")
 
 REACTIONS = ["🔥", "❤️", "😍", "⚡", "👍", "👎", "❤", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🙏", "👌", "🕊", "🤡", "❤‍🔥", "🌚", "🌭", "💯", "🤣", "⚡", "🏆", "🍾", "💋", "😈", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍", "🤗", "🫡", "🎅", "🎄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂", "🤷", "🤷‍♀", "😡"]
-MYPIC = ["https://telegra.ph/file/6d748fa7e05e4d40454e7.jpg",
-         "https://telegra.ph/file/39fa9020d7e85b126c2f7.jpg",
-         "https://telegra.ph/file/3be6a1d4c4e1ea396e51c.jpg",
-         "https://telegra.ph/file/1e25e187f389c67bec79b.jpg",
-         "https://telegra.ph/file/aec7cbada105344a6ebd3.jpg",
-         "https://telegra.ph/file/83031dbe225246b9bbb1d.jpg",
-         "https://telegra.ph/file/97ac99cfc840158a81ae7.jpg",
+MY_PIC = ["https://telegra.ph/file/a5a1a5ceda7dd4fb3e6de.jpg",
         ]
          
 FSTART_MSG = """<b>Hey {}🍁</b>
@@ -55,7 +49,7 @@ async def fstart(client, message):
 
 @Client.on_callback_query(filters.regex("help"))
 async def start(client, message):
-    await message.message.edit_text(text=Config.START_MSG.format(message.from_user.mention),
+    d=await message.message.edit_text(text=Config.START_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -73,7 +67,8 @@ async def start(client, message):
     )
 @Client.on_callback_query(filters.regex("pmhelp"))
 async def pmhelp(client, message):
-    await message.edit_text(text=Config.HELP_MSG.format(message.from_user.mention),
+    await d.delete()
+    await message.send_photo(photo=MY_PIC, caption=Config.HELP_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [

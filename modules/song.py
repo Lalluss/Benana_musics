@@ -71,7 +71,18 @@ async def start(client, message):
             ]
          ),
     )
-
+@Client.on_callback_query(filters.regex("pmhelp"))
+async def start(client, message):
+    await message.message.edit_text(text=Config.HELP_MSG.format(message.from_user.mention),
+         reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("🍁ʙᴀᴄᴋ🍁", callback_data="help"),
+                    InlineKeyboardButton("🍀ᴍᴏᴠɪ🍀", callback_data="movie")
+                ]
+            ]
+         ),
+                                   )
 @Client.on_message(filters.command(['song']) & filters.group)
 async def song_fetch(client, message):
     msg = message

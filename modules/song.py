@@ -72,7 +72,7 @@ async def pmhelp(client, message):
             [
                 [
                     InlineKeyboardButton("🍁ʙᴀᴄᴋ🍁", callback_data="help"),
-                    InlineKeyboardButton("🍀ᴍᴏᴠɪ🍀", callback_data="movie")
+                    InlineKeyboardButton("🍀ᴍᴏᴠɪᴇ🍀", callback_data="movie")
                 ]
             ]
          ),

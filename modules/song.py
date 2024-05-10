@@ -56,7 +56,7 @@ async def start(client, message):
                     InlineKeyboardButton("➕ᴀᴅᴅ ᴍᴇ➕", url=f"http://t.me/music_2_0_bot?startgroup=true")
                 ],
                 [
-                    InlineKeyboardButton("🍁ʜᴇʟᴩ🍁", callback_data="pmhelp"),
+                    InlineKeyboardButton("🍁ʜᴇʟᴩ🍁", callback_data="cracker"),
                     InlineKeyboardButton("🍀ᴀʙᴏᴜᴛ🍀", callback_data="About")
                 ],
                 [
@@ -65,7 +65,7 @@ async def start(client, message):
             ]
          ),
     )
-@Client.on_callback_query(filters.regex("pmhelp"))
+@Client.on_callback_query(filters.regex("cracker"))
 async def pmhelp(client, message):
     await d.delete()
     await message.send_photo(photo=MY_PIC, caption=Config.HELP_MSG.format(message.from_user.mention),

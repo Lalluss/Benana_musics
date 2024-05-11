@@ -84,7 +84,7 @@ async def about(client, message):
             [
                 [
                     InlineKeyboardButton("🍁ʙᴀᴄᴋ🍁", callback_data="help"),
-                    InlineKeyboardButton("🍀ᴍᴏᴠɪᴇ🍀", callback_data="movie")
+                    InlineKeyboardButton("🍀ᴄᴏɴᴛᴀᴄᴛ🍀", url="https://telegram.me/Ranga_Tg")
                 ]
             ]
          ),

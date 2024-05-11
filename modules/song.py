@@ -57,7 +57,7 @@ async def start(client, message):
                 ],
                 [
                     InlineKeyboardButton("🍁ʜᴇʟᴩ🍁", callback_data="cracker"),
-                    InlineKeyboardButton("🍀ᴀʙᴏᴜᴛ🍀", callback_data="About")
+                    InlineKeyboardButton("🍀ᴀʙᴏᴜᴛ🍀", callback_data="about")
                 ],
                 [
                     InlineKeyboardButton("🔍ꜱᴇᴀʀᴄʜ🔎", switch_inline_query_current_chat='')
@@ -67,7 +67,7 @@ async def start(client, message):
     )
 @Client.on_callback_query(filters.regex("cracker"))
 async def pmhelp(client, message):
-    await message.message.edit_text(text=Config.HELP_MSG.format(message.from_user.mention),
+    await message.message.edit_text(text=Config.ABT_MSG.format(message.from_user.mention),
          reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -77,6 +77,18 @@ async def pmhelp(client, message):
             ]
          ),
      )
+@Client.on_callback_query(filters.regex("about"))
+async def about(client, message):
+    await message.message.edit_text(text=Config.HELP_MSG.format(message.from_user.mention),
+         reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("🍁ʙᴀᴄᴋ🍁", callback_data="help"),
+                    InlineKeyboardButton("🍀ᴍᴏᴠɪᴇ🍀", callback_data="movie")
+                ]
+            ]
+         ),
+      )
 @Client.on_message(filters.command(['song']) & filters.group)
 async def song_fetch(client, message):
     msg = message

@@ -33,6 +33,7 @@ class Config:
     START_IMG = os.environ.get("START_IMG", "https://telegra.ph/file/a5a1a5ceda7dd4fb3e6de.jpg")
     HELP_MSG = os.environ.get("HELP_MSG", "👋ʜᴇy {} its very easy to request music \n\nʀᴇqᴜᴇꜱᴛ - ᴇxᴀᴍᴩʟᴇꜱ:\n<code>➲ /song Srivalli Malayalam</code>\n➲ <code>/song Darshana hridayam</code>\n➲ <code>/song Alone - Marshmallow</code>\n<code>➲ /song Aathmavile anandhame</code>\n➲ <code>/song Parayathe vannnen</code>\n\nᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴏɴʟy ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴩ🍒\nʜᴏᴩᴇ yᴏᴜ ᴜɴᴅᴇʀꜱᴛᴏᴏᴅ 😌🍭")
     ABT_MSG = os.environ.get("ABT_MSG", "ʜɪ {}🍁\nɴᴀᴍᴇ:- Aɴɢᴀʟɪɴᴇ\nᴏᴡɴᴇʀ:- Rᴀɴɢᴀ 💥\nꜱᴇʀᴠᴇʀ:- Hᴇʀᴏᴋᴜ\nʙᴏᴛ ᴛyᴩᴇ:- Mᴜꜱɪᴄ Bᴏᴛ")
+    GROUP_U_NAME = os.environ.get("GROUP_U_NAME", "@musiciatst")
     TG_USER_SESSION = os.environ.get("TG_USER_SESSION", "BQCbmEquHCAYGT9ZH0rZvm2EQkvJh_YbGiIW2L492JGhSsac_Sk9x5JiS1Xr1zB2Fl-jEKPz9zW0v3hvu6K1qWPSzoY_Y1Ke9yPakV79GBEc81yEPQFqZfhgqEMZNO2qfDOO1gat7Ld9eGNtyvkOtr_JVeFzzn8uKLvXcYD10EQ-oZFAbKy9CripLJqHtgxcREagBBnmjN6BnI7trCrozYvwWGARa9wQyvyr-cenwW-SICGd82KOpnIie-qrDkmnaHD5XsfdI7Kpnu33WcQsXAxy7J7ehmuCOLx2VAtwreWZlh_mZo3X7McHsXkt1TnBsqCw1ZZBln2oZ3JcXdRBcTAAAAAaY88kkA")
     OWNER = os.environ.get("OWNER", " ") 
     DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")

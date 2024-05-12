@@ -10,11 +10,7 @@ from utils.file_size import get_size
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-
-if os.environ.get("ENV", False):
-    from sample_config import Config
-else:
-    from config import Config
+from config import CHANNELS
     
 ASK_PM_TEXT = "<b>Click the below button</b>"
 
@@ -40,7 +36,7 @@ async def query_mgs(client: Bot, message: Message):
     user_message.clear()
     if len(message.text) > 2:
         try:
-            for channel in Config.CHANNELS:
+            for channel in config.CHANNELS:
                 # Looking for Document type in messages
                 async for messages in client.USER.search_messages(channel, query_message, filter="document", limit=50):
                     doc_file_names = messages.document.file_name

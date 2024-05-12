@@ -8,7 +8,7 @@ from utils.file_size import get_size
 from pyrogram.types import Message
 from pyrogram.errors import FloodWait
 from pyrogram import Client, filters
-from config import GROUP_U_NAME
+from config import Config
 from pyrogram import enums
 MOVIE_TXT = "Hello {} request movie ",
 BOT_PM_TEXT = "<b>Sorry.. 😢</b>\n\n<code>Bot won't work in PM, Ask in ma Group. I'll reply the file in PM if " \
@@ -71,7 +71,7 @@ async def bot_pm(client: Bot, message: Message):
                                 chat_id=message.chat.id,
                                 from_chat_id=messages.chat.id,
                                 message_id=messages.message_id,
-                                caption=config.GROUP_U_NAME+CAPTION_TEXT_DOC.format(media_name,
+                                caption=Config.GROUP_U_NAME+CAPTION_TEXT_DOC.format(media_name,
                                                                                             media_format, file_size)
                             )
                         except FloodWait as e:
@@ -91,7 +91,7 @@ async def bot_pm(client: Bot, message: Message):
                                 chat_id=message.chat.id,
                                 from_chat_id=messages.chat.id,
                                 message_id=messages.message_id,
-                                caption=config.GROUP_U_NAME+CAPTION_TEXT_VID.format(media_name, file_size)
+                                caption=Config.GROUP_U_NAME+CAPTION_TEXT_VID.format(media_name, file_size)
                             )
                         except FloodWait as e:
                             time.sleep(e.x)

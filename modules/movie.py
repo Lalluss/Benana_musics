@@ -15,7 +15,7 @@ ASK_PM_TEXT = "<b>Click the below button</b>"
 
 CHANNELS = -1002035188749
 
-BLOCK_LIST = ['http://', 'https://', '@', '#', 'bit.ly', 't.me', '/']
+BLOCK_LIST = ['@',]
 CAPTION_TEXT_DOC = "\n\n<b>File Name:</b> {}\n\n<b>Format:</b> {}\n<b>Size:</b> {}"
 CAPTION_TEXT_VID = "\n\n<b>File Name:</b> {}\n\n<b>Size:</b> {}"
 PM_ERROR = "<b>Unable to send medias</b> ⛔️\n<code>Click the below button\nAsk here for movies later!</code>"

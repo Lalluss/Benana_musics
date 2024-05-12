@@ -37,3 +37,6 @@ class Config:
     OWNER = os.environ.get("OWNER", " ") 
     DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
     msg = {}
+
+def LOGGER(name: str) -> logging.Logger:
+    return logging.getLogger(name)

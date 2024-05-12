@@ -16,6 +16,10 @@ CHANNELS = -1002145296820
 
 @Client.on_message(filters.private & filters.text)
 async def snd_pm(client, message):
+      query_message = message.text.split(" ")[-1]
+      query_bytes = query_message.encode("ascii")
+      base64_bytes = b64decode(query_bytes)
+      secret_query = base64_bytes.decode("ascii")
       if secret_query:
           for channel in CHANNELS:
               # Looking for Document type in messages

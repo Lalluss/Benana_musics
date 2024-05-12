@@ -3,7 +3,6 @@ import os
 import time
 
 from bot import Bot
-from presets import Presets
 from base64 import b64encode
 from init import user_message
 from utils.file_size import get_size

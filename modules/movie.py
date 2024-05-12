@@ -10,9 +10,10 @@ from utils.file_size import get_size
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from config import CHANNELS
-    
+
 ASK_PM_TEXT = "<b>Click the below button</b>"
+
+CHANNELS = -1002035188749
 
 BLOCK_LIST = ['http://', 'https://', '@', '#', 'bit.ly', 't.me', '/']
 CAPTION_TEXT_DOC = "\n\n<b>File Name:</b> {}\n\n<b>Format:</b> {}\n<b>Size:</b> {}"
@@ -36,7 +37,7 @@ async def query_mgs(client: Bot, message: Message):
     user_message.clear()
     if len(message.text) > 2:
         try:
-            for channel in config.CHANNELS:
+            for channel in CHANNELS:
                 # Looking for Document type in messages
                 async for messages in client.USER.search_messages(channel, query_message, filter="document", limit=50):
                     doc_file_names = messages.document.file_name

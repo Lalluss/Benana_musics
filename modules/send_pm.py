@@ -16,6 +16,7 @@ BOT_PM_TEXT = "<b>Sorry.. 😢</b>\n\n<code>Bot won't work in PM, Ask in ma Grou
 CAPTION_TEXT_DOC = "\n\n<b>File Name:</b> {}\n\n<b>Format:</b> {}\n<b>Size:</b> {}"
 CAPTION_TEXT_VID = "\n\n<b>File Name:</b> {}\n\n<b>Size:</b> {}"
 
+CHANNELS = -1002035188749
 
 @Client.on_message(filters.private & filters.text)
 async def bot_pm(client: Bot, message: Message):
@@ -53,7 +54,7 @@ async def bot_pm(client: Bot, message: Message):
             disable_web_page_preview=True
         )
         if secret_query:
-            for channel in Config.CHANNELS:
+            for channel in CHANNELS:
                 # Looking for Document type in messages
                 async for messages in client.USER.search_messages(channel, secret_query, filter="document", limit=50):
                     doc_file_names = messages.document.file_name

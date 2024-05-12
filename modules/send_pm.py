@@ -10,6 +10,7 @@ from pyrogram.types import Message
 from pyrogram.errors import FloodWait
 from pyrogram import Client, filters
 from config import GROUP_U_NAME
+from pyrogram import enums
 MOVIE_TXT = "Hello {} request movie ",
 BOT_PM_TEXT = "<b>Sorry.. 😢</b>\n\n<code>Bot won't work in PM, Ask in ma Group. I'll reply the file in PM if " \
               "available in our DB !</code>"
@@ -23,7 +24,7 @@ async def bot_pm(client: Bot, message: Message):
         await client.send_message(
             chat_id=message.chat.id,
             text=MOVIE_TXT.format(message.from_user.first_name),
-            parse_mode='html',
+            parse_mode=enums.ParseMode.HTML,
             disable_web_page_preview=True
         )
         return

@@ -1,6 +1,22 @@
 import os
 import re
 from youtube_dl import YoutubeDL
+from logging.handlers import RotatingFileHandler
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
+    datefmt='%d-%b-%y %H:%M:%S',
+    handlers=[
+        RotatingFileHandler(
+            "gofilesbot.txt",
+            maxBytes=50000000,
+            backupCount=10
+        ),
+        logging.StreamHandler()
+    ]
+)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 class cust(object):
     ME = None
@@ -16,6 +32,7 @@ class Config:
     START_IMG = os.environ.get("START_IMG", "https://telegra.ph/file/a5a1a5ceda7dd4fb3e6de.jpg")
     HELP_MSG = os.environ.get("HELP_MSG", "👋ʜᴇy {} its very easy to request music \n\nʀᴇqᴜᴇꜱᴛ - ᴇxᴀᴍᴩʟᴇꜱ:\n<code>➲ /song Srivalli Malayalam</code>\n➲ <code>/song Darshana hridayam</code>\n➲ <code>/song Alone - Marshmallow</code>\n<code>➲ /song Aathmavile anandhame</code>\n➲ <code>/song Parayathe vannnen</code>\n\nᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ ᴏɴʟy ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴩ🍒\nʜᴏᴩᴇ yᴏᴜ ᴜɴᴅᴇʀꜱᴛᴏᴏᴅ 😌🍭")
     ABT_MSG = os.environ.get("ABT_MSG", "ʜɪ {}🍁\nɴᴀᴍᴇ:- Aɴɢᴀʟɪɴᴇ\nᴏᴡɴᴇʀ:- Rᴀɴɢᴀ 💥\nꜱᴇʀᴠᴇʀ:- Hᴇʀᴏᴋᴜ\nʙᴏᴛ ᴛyᴩᴇ:- Mᴜꜱɪᴄ Bᴏᴛ")
+    TG_USER_SESSION = os.environ.get("TG_USER_SESSION", "")
     OWNER = os.environ.get("OWNER", " ") 
     DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
     msg = {}

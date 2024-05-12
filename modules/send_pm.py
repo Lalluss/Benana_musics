@@ -37,7 +37,7 @@ async def bot_pm(client: Bot, message: Message):
         msg = await client.send_message(
             chat_id=message.chat.id,
             text=BOT_PM_TEXT,
-            reply_to_message_id=message.message_id
+            reply_to_message_id=message.id
         )
         time.sleep(6)
         try:
@@ -49,7 +49,7 @@ async def bot_pm(client: Bot, message: Message):
     try:
         await client.send_message(
             chat_id=message.chat.id,
-            text=Presets.WELCOME_TEXT.format(message.from_user.first_name),
+            text=MOVIE_TXT.format(message.from_user.first_name),
             parse_mode='html',
             disable_web_page_preview=True
         )

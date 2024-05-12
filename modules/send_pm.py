@@ -33,26 +33,8 @@ async def bot_pm(client: Bot, message: Message):
         query_bytes = query_message.encode("ascii")
         base64_bytes = b64decode(query_bytes)
         secret_query = base64_bytes.decode("ascii")
-    except Exception:
-        msg = await client.send_message(
-            chat_id=message.chat.id,
-            text=BOT_PM_TEXT,
-            reply_to_message_id=message.id
-        )
-        time.sleep(6)
-        try:
-            await msg.delete()
-            await message.delete()
-        except Exception:
-            pass
-        return
-    try:
-        await client.send_message(
-            chat_id=message.chat.id,
-            text=MOVIE_TXT.format(message.from_user.first_name),
-            parse_mode='html',
-            disable_web_page_preview=True
-        )
+
+
         if secret_query:
             for channel in CHANNELS:
                 # Looking for Document type in messages

@@ -1,5 +1,6 @@
 import os
 import re
+import logging
 from youtube_dl import YoutubeDL
 from logging.handlers import RotatingFileHandler
 

@@ -12,10 +12,10 @@ class Bot(Client):
 
     def __init__(self):
         super().__init__(
-            "gofilesbot",
+            "Banana_musics",
             api_hash=Config.API_HASH,
             api_id=Config.APP_ID,
-            bot_token=Config.TG_BOT_TOKEN,
+            bot_token=Config.BOT_TOKEN,
             plugins={
                 "root": "modules"
             },

@@ -19,11 +19,26 @@ import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
-app = pyrogram.Client(
-      "mlz",
-       bot_token=Config.BOT_TOKEN,
-       api_id=Config.APP_ID,
-       api_hash=Config.API_HASH,
-       plugins=dict(root="modules")
-    )
+from aiohttp import web
+from plugins import web_server
+PORT = environ.get("PORT", "8080")
+class Lallus(Client):
+
+    def __init__(self):
+        super().__init__(
+            name=SESSION,
+            api_id=Config.API_ID,
+            api_hash=Config.API_HASH,
+            bot_token=Config.BOT_TOKEN,
+            workers=50,
+            plugins={"root": "modules"},
+            sleep_threshold=5,
+        )
+    async def start(self):
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()
+
+app = Lallus()
 app.run()

@@ -1,6 +1,6 @@
 import os
 import re
-from os import eviron
+from os import environ
 import logging
 from youtube_dl import YoutubeDL
 from logging.handlers import RotatingFileHandler

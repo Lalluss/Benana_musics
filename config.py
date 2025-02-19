@@ -1,5 +1,6 @@
 import os
 import re
+from os import eviron
 import logging
 from youtube_dl import YoutubeDL
 from logging.handlers import RotatingFileHandler
@@ -25,6 +26,7 @@ class cust(object):
     B_NAME = None
 
 class Config:
+    SESSION = environ.get('SESSION', 'Media_search')
     APP_ID = int(os.environ.get("APP_ID", "7111812"))
     API_HASH = os.environ.get("API_HASH", "064880c569c803881b46d65969452ddf")
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "7738145873:AAEMpOySFEWKDG6E0khX9JMgXN9haR0HCbo")

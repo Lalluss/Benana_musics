@@ -5,21 +5,6 @@ import logging
 from youtube_dl import YoutubeDL
 from logging.handlers import RotatingFileHandler
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
-    datefmt='%d-%b-%y %H:%M:%S',
-    handlers=[
-        RotatingFileHandler(
-            "gofilesbot.txt",
-            maxBytes=50000000,
-            backupCount=10
-        ),
-        logging.StreamHandler()
-    ]
-)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
 class cust(object):
     ME = None
     U_NAME = None

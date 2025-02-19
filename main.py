@@ -24,6 +24,10 @@ from aiohttp import web
 from Lallus import web_server
 PORT = environ.get("PORT", "8080")
 class Lallus(Client):
+  app = Client("SESSION",
+  api_id=APP_ID, 
+  api_hash=API_HASH, 
+  bot_token=BOT_TOKEN)
 
     def __init__(self):
         super().__init__(
@@ -41,5 +45,6 @@ class Lallus(Client):
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, PORT).start()
 
-app = Lallus()
-app.run()
+if name == 'main':
+    bot = Lallus()
+    bot.run()

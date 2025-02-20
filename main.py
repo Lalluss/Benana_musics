@@ -28,6 +28,7 @@ app = Client("SESSION",
 api_id=Config.APP_ID, 
 api_hash=Config.API_HASH, 
 bot_token=Config.BOT_TOKEN)
+
 class Lallus(Client):
     def __init__(self):
         super().__init__(
@@ -45,5 +46,5 @@ class Lallus(Client):
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, PORT).start()
 
-    bot = Lallus()
-    bot.run()
+bot = Lallus()
+bot.run()

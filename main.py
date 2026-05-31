@@ -3,10 +3,22 @@ import asyncio
 from aiohttp import web
 from config import Config
 
-bot = Client("Lallus", api_id=Config.APP_ID, api_hash=Config.API_HASH, 
-             bot_token=Config.BOT_TOKEN, session=Config.SESSION, 
-             plugins=dict(root="modules"))
+app = Client("SESSION",
+api_id=Config.APP_ID, 
+api_hash=Config.API_HASH, 
+bot_token=Config.BOT_TOKEN)
 
+class Lallus(Client):
+    def _init_(self):
+        super()._init_(
+            name=Config.SESSION,
+            api_id=Config.APP_ID,
+            api_hash=Config.API_HASH,
+            bot_token=Config.BOT_TOKEN,
+            workers=50,
+            plugins={"root": "modules"},
+            sleep_threshold=5,
+        )
 async def handle(request):
     return web.Response(text="Lallus Bot Running")
 

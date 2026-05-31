@@ -4,7 +4,7 @@ from aiohttp import web
 from pyrogram import Client
 from config import Config
 
-bot = AnnaBen("SESSION",
+bot = Client("SESSION",
 api_id=Config.APP_ID, 
 api_hash=Config.API_HASH, 
 bot_token=Config.BOT_TOKEN)

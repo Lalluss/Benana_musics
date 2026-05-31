@@ -30,8 +30,8 @@ api_hash=Config.API_HASH,
 bot_token=Config.BOT_TOKEN)
 
 class Lallus(Client):
-    def init(self):
-        super().init(
+    def __init__(self):
+        super().__init__(
             name=Config.SESSION,
             api_id=Config.APP_ID,
             api_hash=Config.API_HASH,

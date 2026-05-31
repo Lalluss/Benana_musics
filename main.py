@@ -4,16 +4,23 @@ from aiohttp import web
 from pyrogram import Client
 from config import Config
 
-bot = Client(
-    "Lallus", 
-    api_id=Config.APP_ID,
-    api_hash=Config.API_HASH, 
-    bot_token=Config.BOT_TOKEN, 
-    name=Config.SESSION,
-    plugins=dict(root="modules"),
-    in_memory=True
-)
+bot = AnnaBen("SESSION",
+api_id=Config.APP_ID, 
+api_hash=Config.API_HASH, 
+bot_token=Config.BOT_TOKEN)
 
+class Lallus(Client):
+    def init(self):
+        super().init(
+            name=Config.SESSION,
+            api_id=Config.APP_ID,
+            api_hash=Config.API_HASH,
+            bot_token=Config.BOT_TOKEN,
+            workers=50,
+            plugins={"root": "modules"},
+            sleep_threshold=5,
+        )
+        
 async def handle(request):
     return web.Response(text="Lallus Bot Running")
 

@@ -31,6 +31,8 @@ async def start_web():
     await site.start()
     print("Fake web server started on port 8080")
 
+bot = Lallus()
+
 async def main():
     await start_web() 
     await bot.start()  

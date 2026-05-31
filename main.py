@@ -22,7 +22,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 from aiohttp import web
 from Lallus import web_server
-PORT = environ.get("PORT", "8080")
+PORT = environ.get("PORT", 8080)
 
 app = Client("SESSION",
 api_id=Config.APP_ID, 

@@ -1,6 +1,7 @@
 from pyrogram import Client
 import asyncio
 from aiohttp import web
+from config import Config
 
 bot = Client("Lallus", api_id=Config.API_ID, api_hash=Config.API_HASH, 
              bot_token=Config.BOT_TOKEN, session=Config.SESSION, 

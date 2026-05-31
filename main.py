@@ -9,7 +9,7 @@ bot = Client(
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH, 
     bot_token=Config.BOT_TOKEN, 
-    session_string=Config.SESSION,
+    name=Config.SESSION,
     plugins=dict(root="modules"),
     in_memory=True
 )

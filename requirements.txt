@@ -1,5 +1,5 @@
 git+https://github.com/yt-dlp/yt-dlp/
-Pyrogram
+pyrogram
 TgCrypto==1.2.2
 yt_dlp
 youtube_dl

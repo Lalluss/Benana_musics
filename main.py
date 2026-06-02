@@ -1,3 +1,4 @@
+import pyrogram
 import re
 from os import environ
 
@@ -16,7 +17,6 @@ logger = logging.getLogger(__name__)
 import os
 from config import Config
 
-import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 

@@ -1,14 +1,12 @@
-FROM python:3.11.7
+FROM python:3.10.8-slim-buster
 
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends git && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt update && apt upgrade -y
+RUN apt install git -y
+COPY requirements.txt /requirements.txt
 
-WORKDIR /SilentXBotz
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir --upgrade pip --root-user-action=ignore && \
-    pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
+RUN cd /
+RUN pip3 install -U pip && pip3 install -U -r requirements.txt
+WORKDIR /BANANA
 
 COPY . .
 
